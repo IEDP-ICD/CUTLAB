@@ -1,0 +1,31 @@
+{
+  "mision": "Diseñar, fabricar y comercializar productos artesanales de alta calidad elaborados con cortadora láser CO₂, integrando el diseño digital en Adobe Illustrator con la fabricación de precisión, para generar un emprendimiento sostenible que demuestre el potencial creativo y tecnológico de los estudiantes de la Institución Educativa La Divina Pastora.",
+  "vision": "Consolidar a CUTLAB como el laboratorio de fabricación digital estudiantil más reconocido de Cúcuta, posicionando nuestros productos en mercados locales y digitales, y siendo referente de innovación en la integración de diseño gráfico y tecnología de fabricación en el ámbito educativo regional.",
+  "sobre_nosotros": "Somos cuatro estudiantes de la IEDP apasionados por el diseño digital y la fabricación de precisión. CUTLAB nació en el taller de tecnología de nuestro colegio, donde aprendimos a convertir ideas en vectores y vectores en productos reales usando la cortadora láser CO₂ institucional.",
+  "integrantes": [
+    {
+      "nombre": "Nombre Apellido",
+      "rol": "Diseño en Illustrator",
+      "descripcion": "Encargado del diseño vectorial en Adobe Illustrator. Convierte las ideas del equipo en archivos de corte listos para la máquina.",
+      "foto": "integrante1.jpg"
+    },
+    {
+      "nombre": "Nombre Apellido",
+      "rol": "Operación de la máquina",
+      "descripcion": "Maneja la cortadora láser CO₂, calibra potencia y velocidad según el material, y supervisa cada proceso de corte y grabado.",
+      "foto": "integrante2.jpg"
+    },
+    {
+      "nombre": "Nombre Apellido",
+      "rol": "Acabados y producción",
+      "descripcion": "Responsable del post-proceso: lijado, pintura, ensamblaje y control de calidad de cada pieza antes de la entrega al cliente.",
+      "foto": "integrante3.jpg"
+    },
+    {
+      "nombre": "Nombre Apellido",
+      "rol": "Marketing y ventas",
+      "descripcion": "Gestiona el catálogo de productos, las redes sociales, los precios y la atención a clientes. También produce los videotutoriales del proceso.",
+      "foto": "integrante4.jpg"
+    }
+  ]
+}
