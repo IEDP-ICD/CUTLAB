@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║   CUTLAB — Diseño, Elaboración y Venta de Productos          ║
+  ║   Cortadora Láser CO₂ · IEDP · Cúcuta                       ║
+  ╠══════════════════════════════════════════════════════════════╣
+  ║  ESTRUCTURA DE CARPETAS EN GITHUB:                           ║
+  ║                                                              ║
+  ║  CUTLAB/                                                     ║
+  ║  ├── index.html                ← este archivo               ║
+  ║  ├── img/                                                    ║
+  ║  │   ├── logo.png              ← logo de CUTLAB              ║
+  ║  │   └── escudo.png            ← escudo IEDP                 ║
+  ║  ├── galeria/                                                ║
+  ║  │   ├── galeria.json          ← fotos de proceso y producto ║
+  ║  │   └── (fotos JPG/PNG)                                     ║
+  ║  ├── catalogo/                                               ║
+  ║  │   ├── catalogo.json         ← productos con precio        ║
+  ║  │   └── (fotos de productos)                                ║
+  ║  ├── tutoriales/                                             ║
+  ║  │   └── tutoriales.json       ← videotutoriales YouTube     ║
+  ║  ├── equipo/                                                 ║
+  ║  │   ├── equipo.json           ← misión, visión, integrantes ║
+  ║  │   └── (fotos del equipo)                                  ║
+  ║  └── redes/                                                  ║
+  ║      └── redes.json            ← redes sociales              ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUTLAB · Diseño y Corte Láser CO₂ · IEDP</title>
+  <meta name="description" content="CUTLAB — Emprendimiento de diseño, elaboración y venta de productos en cortadora láser CO₂. Institución Educativa La Divina Pastora, Cúcuta." />
+
+  <!--
+    FUENTES:
+    - Bebas Neue: tipografía industrial de alto impacto para el nombre CUTLAB
+    - DM Sans: sans-serif moderno, técnico y muy legible para el cuerpo
+    - DM Mono: monoespaciada para detalles técnicos (precios, etiquetas)
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       VARIABLES GLOBALES
+       Paleta industrial: negro, gris antracita, naranja láser,
+       blancos fríos. Elegante, técnico, hiperrealista.
+       ═══════════════════════════════════════════════════════════ */
+    :root {
+      /* Fondos oscuros en capas */
+      --negro:          #080a0c;   /* Negro casi puro — fondo principal */
+      --carbon:         #0f1215;   /* Carbón — secciones alternas */
+      --grafito:        #171c21;   /* Grafito — superficie de tarjetas */
+      --grafito-claro:  #1e252c;   /* Grafito más claro — hover de tarjetas */
+      --acero:          #252d36;   /* Acero — bordes y separadores */
+
+      /* Acento principal: naranja láser (el color del haz de una cortadora) */
+      --laser:          #ff6b1a;   /* Naranja láser — color principal de acento */
+      --laser-claro:    #ff8c47;   /* Naranja claro — hover */
+      --laser-suave:    #3d1a08;   /* Naranja muy oscuro — fondos de badges */
+      --laser-glow: 0 0 20px rgba(255, 107, 26, 0.4); /* Resplandor naranja */
+
+      /* Blancos y grises para texto */
+      --blanco:         #ffffff;
+      --blanco-90:      rgba(255,255,255,0.90);
+      --blanco-60:      rgba(255,255,255,0.60);
+      --blanco-30:      rgba(255,255,255,0.30);
+      --blanco-10:      rgba(255,255,255,0.08);
+      --gris-texto:     #8a9bb0;   /* Gris azulado — texto secundario */
+
+      /* Dimensiones */
+      --radio-sm:  4px;   /* Bordes casi rectos — estética industrial */
+      --radio-md:  8px;
+      --radio-lg:  14px;
+      --radio-xl:  24px;
+
+      /* Sombras con tono naranja */
+      --sombra-sm:  0 2px 12px rgba(0,0,0,0.5);
+      --sombra-md:  0 6px 28px rgba(0,0,0,0.6);
+      --sombra-lg:  0 12px 48px rgba(0,0,0,0.7);
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--negro);
+      color: var(--blanco-90);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CURSOR PERSONALIZADO
+       Pequeño punto naranja que sigue al mouse — toque industrial
+       ═══════════════════════════════════════════════════════════ */
+    /* El cursor real se oculta y se reemplaza con el elemento .cursor */
+    * { cursor: none; }
+    a, button { cursor: none; }
+
+    /* Punto del cursor */
+    .cursor-punto {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: var(--laser);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, background 0.2s;
+      box-shadow: var(--laser-glow);
+    }
+
+    /* Anillo del cursor (más grande, con retraso) */
+    .cursor-anillo {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      border: 1.5px solid rgba(255, 107, 26, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease-out, width 0.2s, height 0.2s;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       LÍNEA DE CARGA
+       Barra de progreso naranja en la parte superior de la página
+       ═══════════════════════════════════════════════════════════ */
+    .barra-carga {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--laser), var(--laser-claro));
+      z-index: 9997;
+      transition: width 0.3s;
+      box-shadow: var(--laser-glow);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       BARRA DE NAVEGACIÓN
+       Fondo carbón casi transparente con línea inferior naranja sutil
+       ═══════════════════════════════════════════════════════════ -->
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 10, 12, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--acero);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Logo y nombre en la nav */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    /* Logo CUTLAB en la nav */
+    .nav-logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radio-sm);
+      object-fit: contain;
+      background: var(--grafito);
+      padding: 3px;
+      border: 1px solid var(--acero);
+    }
+
+    /* Nombre CUTLAB en la nav (usa Bebas Neue) */
+    .nav-nombre {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--blanco);
+      letter-spacing: 0.1em;
+      line-height: 1;
+    }
+
+    /* Punto naranja decorativo en el nombre */
+    .nav-nombre span {
+      color: var(--laser);
+    }
+
+    /* Links de navegación */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--blanco-60);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: 'DM Mono', monospace;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    /* Línea naranja debajo al hacer hover */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--laser);
+      transition: width 0.3s;
+      box-shadow: var(--laser-glow);
+    }
+
+    .nav-links a:hover { color: var(--laser); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO: PORTADA PRINCIPAL
+       Fondo casi negro con cuadrícula de ingeniería y efecto láser
+       ═══════════════════════════════════════════════════════════ */
+    .hero {
+      min-height: 95vh;
+      display: grid;
+      /* Dos columnas: texto a la izquierda, logos a la derecha */
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 6rem 4rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--negro);
+      gap: 4rem;
+    }
+
+    /* Cuadrícula técnica de fondo — estilo blueprint oscuro */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,107,26,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,107,26,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* Resplandor naranja intenso desde la esquina derecha (el "láser") */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+        rgba(255,107,26,0.12) 0%,
+        rgba(255,107,26,0.04) 40%,
+        transparent 70%);
+      top: -200px;
+      right: -200px;
+      pointer-events: none;
+    }
+
+    /* Contenido de texto del hero */
+    .hero-texto {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Etiqueta técnica monoespaciada arriba del título */
+    .hero-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--laser);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Línea corta antes del tag */
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--laser);
+      box-shadow: var(--laser-glow);
+    }
+
+    /* Título gigante CUTLAB */
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 10vw, 10rem);
+      line-height: 0.9;
+      color: var(--blanco);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    /* Punto naranja en el título */
+    .hero h1 .punto-laser {
+      color: var(--laser);
+      text-shadow: var(--laser-glow);
+    }
+
+    /* Subtítulo descriptivo */
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--blanco-60);
+      max-width: 420px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      border-left: 2px solid var(--laser);
+      padding-left: 1.25rem;
+    }
+
+    /* Chips de materiales que trabaja el lab */
+    .hero-materiales {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Etiqueta de material */
+    .material-chip {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      padding: 5px 14px;
+      border-radius: var(--radio-sm);
+      border: 1px solid var(--acero);
+      color: var(--blanco-60);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .material-chip:hover {
+      border-color: var(--laser);
+      color: var(--laser);
+    }
+
+    /* Botones del hero */
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Botón principal naranja sólido */
+    .btn-laser {
+      background: var(--laser);
+      color: var(--negro);
+      padding: 13px 28px;
+      border-radius: var(--radio-sm);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'DM Mono', monospace;
+      box-shadow: var(--laser-glow);
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-laser:hover {
+      background: var(--laser-claro);
+      transform: translateY(-2px);
+    }
+
+    /* Botón ghost con borde naranja */
+    .btn-outline-laser {
+      background: transparent;
+      color: var(--laser);
+      border: 1px solid var(--laser);
+      padding: 13px 28px;
+      border-radius: var(--radio-sm);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'DM Mono', monospace;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline-laser:hover {
+      background: var(--laser-suave);
+      transform: translateY(-2px);
+    }
+
+    /* Panel derecho del hero: logos y datos técnicos */
+    .hero-panel {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Contenedor de logos con línea divisora */
+    .hero-logos {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Logo principal CUTLAB */
+    .logo-cutlab {
+      width: 180px;
+      height: 180px;
+      border-radius: var(--radio-md);
+      object-fit: contain;
+      background: var(--grafito);
+      padding: 8px;
+      /* Borde con resplandor naranja */
+      border: 1px solid var(--acero);
+      box-shadow:
+        0 0 0 1px rgba(255,107,26,0.2),
+        inset 0 0 30px rgba(255,107,26,0.05),
+        var(--sombra-lg);
+      animation: aparecerPanel 1s ease-out;
+    }
+
+    /* Divisor vertical entre logos */
+    .logos-divisor {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--acero), transparent);
+    }
+
+    /* Escudo IEDP */
+    .logo-iedp {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radio-md);
+      object-fit: contain;
+      background: var(--grafito);
+      padding: 6px;
+      border: 1px solid var(--acero);
+      box-shadow: var(--sombra-md);
+      opacity: 0.8;
+    }
+
+    /* Panel de especificaciones técnicas (estilo ficha de máquina) */
+    .hero-specs {
+      background: var(--grafito);
+      border: 1px solid var(--acero);
+      border-radius: var(--radio-md);
+      padding: 1.25rem 1.5rem;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    /* Título del panel de specs */
+    .specs-titulo {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--laser);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--acero);
+    }
+
+    /* Cada línea de especificación */
+    .spec-linea {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--blanco-10);
+      font-size: 0.78rem;
+    }
+
+    /* Etiqueta de la spec */
+    .spec-label {
+      color: var(--gris-texto);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Valor de la spec */
+    .spec-valor {
+      color: var(--blanco-90);
+      font-weight: 500;
+      font-size: 0.82rem;
+    }
+
+    /* Valor con acento naranja */
+    .spec-valor.laser { color: var(--laser); }
+
+    /* Animación de entrada para el panel derecho */
+    @keyframes aparecerPanel {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       LAYOUT GENERAL
+       ═══════════════════════════════════════════════════════════ */
+    .contenedor {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .seccion { padding: 5.5rem 0; }
+    .seccion-carbon { background: var(--carbon); }
+    .seccion-grafito { background: var(--grafito); }
+
+    /* Encabezado de sección */
+    .seccion-header {
+      margin-bottom: 4rem;
+    }
+
+    /* Número de sección en monoespaciado (01, 02, etc.) */
+    .seccion-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--laser);
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Línea decorativa después del número */
+    .seccion-num::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 40px;
+      background: var(--laser);
+    }
+
+    /* Título de sección */
+    .seccion-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--blanco);
+      letter-spacing: 0.05em;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    /* Subtítulo de sección */
+    .seccion-header p {
+      color: var(--gris-texto);
+      max-width: 520px;
+      font-size: 0.92rem;
+      font-weight: 300;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       MISIÓN Y VISIÓN
+       ═══════════════════════════════════════════════════════════ */
+    .mision-vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .mv-card {
+      background: var(--grafito);
+      border: 1px solid var(--acero);
+      border-radius: var(--radio-md);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Línea lateral naranja */
+    .mv-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--laser), transparent);
+    }
+
+    /* Número técnico decorativo en la esquina */
+    .mv-card-num {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: var(--blanco-10);
+      line-height: 1;
+    }
+
+    .mv-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--laser);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .mv-card p {
+      color: var(--blanco-60);
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 0.92rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       GALERÍA DE PROCESO Y PRODUCTOS
+       ═══════════════════════════════════════════════════════════ */
+    /* Filtros de categoría */
+    .galeria-filtros {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .filtro-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      padding: 6px 16px;
+      border-radius: var(--radio-sm);
+      border: 1px solid var(--acero);
+      background: transparent;
+      color: var(--gris-texto);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: none;
+      transition: all 0.2s;
+    }
+
+    .filtro-btn.activo,
+    .filtro-btn:hover {
+      background: var(--laser-suave);
+      border-color: var(--laser);
+      color: var(--laser);
+    }
+
+    /* Grid de la galería — columnas de distintas alturas (masonry visual) */
+    #galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .foto-card {
+      position: relative;
+      border-radius: var(--radio-md);
+      overflow: hidden;
+      cursor: none;
+      background: var(--grafito);
+      border: 1px solid var(--acero);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .foto-card:hover {
+      transform: scale(1.02);
+      border-color: var(--laser);
+    }
+
+    .foto-thumb {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .foto-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+      filter: brightness(0.9) contrast(1.05) saturate(0.9);
+      /* Filtro sutil: hace las fotos más "industriales" */
+    }
+
+    .foto-card:hover .foto-thumb img {
+      transform: scale(1.06);
+      filter: brightness(1) contrast(1.05) saturate(1);
+    }
+
+    /* Overlay con info al hacer hover */
+    .foto-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(8,10,12,0.92) 0%,
+        rgba(8,10,12,0.4) 50%,
+        transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+    }
+
+    .foto-card:hover .foto-overlay {
+      opacity: 1;
+    }
+
+    .foto-overlay-info { width: 100%; }
+
+    .foto-nombre {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--blanco);
+      line-height: 1.3;
+    }
+
+    .foto-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--laser);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CATÁLOGO DE PRODUCTOS
+       ═══════════════════════════════════════════════════════════ */
+    #catalogo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .producto-card {
+      background: var(--grafito);
+      border: 1px solid var(--acero);
+      border-radius: var(--radio-md);
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .producto-card:hover {
+      border-color: var(--laser);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(255,107,26,0.15);
+    }
+
+    /* Imagen del producto */
+    .producto-img {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--negro);
+      position: relative;
+    }
+
+    .producto-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+      filter: brightness(0.9) contrast(1.1);
+    }
+
+    .producto-card:hover .producto-img img {
+      transform: scale(1.05);
+      filter: brightness(1) contrast(1.1);
+    }
+
+    /* Badge de material sobre la imagen */
+    .producto-material-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(8,10,12,0.85);
+      border: 1px solid var(--laser);
+      color: var(--laser);
+      padding: 4px 10px;
+      border-radius: var(--radio-sm);
+    }
+
+    /* Placeholder si no hay imagen */
+    .producto-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      opacity: 0.3;
+    }
+
+    /* Info del producto */
+    .producto-info {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .producto-nombre {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--blanco);
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+    }
+
+    .producto-desc {
+      font-size: 0.83rem;
+      color: var(--gris-texto);
+      font-weight: 300;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    /* Especificaciones del producto */
+    .producto-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .producto-spec-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      padding: 3px 10px;
+      border-radius: var(--radio-sm);
+      border: 1px solid var(--acero);
+      color: var(--gris-texto);
+      letter-spacing: 0.05em;
+    }
+
+    /* Pie de la tarjeta */
+    .producto-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--acero);
+      margin-top: 8px;
+    }
+
+    /* Precio del producto */
+    .producto-precio {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--laser);
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 20px rgba(255,107,26,0.3);
+    }
+
+    /* Badge de disponibilidad */
+    .producto-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      padding: 4px 12px;
+      border-radius: var(--radio-sm);
+      border: 1px solid var(--laser);
+      color: var(--laser);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       TUTORIALES EN VIDEO
+       Videotutoriales de Adobe Illustrator y cortadora láser
+       ═══════════════════════════════════════════════════════════ */
+    #tutoriales-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    .tutorial-card {
+      background: var(--grafito);
+      border: 1px solid var(--acero);
+      border-radius: var(--radio-md);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .tutorial-card:hover {
+      border-color: rgba(255,107,26,0.4);
+    }
+
+    /* Contenedor del video 16:9 */
+    .tutorial-video {
+      aspect-ratio: 16 / 9;
+      background: var(--negro);
+    }
+
+    .tutorial-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Info del tutorial */
+    .tutorial-info {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Paso del proceso (ej: 01 — DISEÑO EN ILLUSTRATOR) */
+    .tutorial-paso {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--laser);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .tutorial-titulo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      color: var(--blanco);
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+    }
+
+    .tutorial-desc {
+      font-size: 0.82rem;
+      color: var(--gris-texto);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* Duración del video */
+    .tutorial-duracion {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--blanco-30);
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       EQUIPO — 4 INTEGRANTES
+       ═══════════════════════════════════════════════════════════ */
+    #equipo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .miembro-card {
+      background: var(--grafito);
+      border: 1px solid var(--acero);
+      border-radius: var(--radio-md);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Número decorativo de fondo */
+    .miembro-card-num {
+      position: absolute;
+      bottom: -10px;
+      right: 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 6rem;
+      color: var(--blanco-10);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .miembro-card:hover {
+      border-color: rgba(255,107,26,0.4);
+      transform: translateY(-4px);
+    }
+
+    /* Foto del integrante */
+    .miembro-foto {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radio-md); /* Cuadrado redondeado, no circular */
+      object-fit: cover;
+      border: 1px solid var(--acero);
+      margin: 0 auto 1.25rem;
+      display: block;
+      filter: grayscale(20%) contrast(1.05);
+      /* Leve desaturado para estética hiperrealista oscura */
+      transition: filter 0.3s;
+    }
+
+    .miembro-card:hover .miembro-foto {
+      filter: grayscale(0%) contrast(1);
+      border-color: var(--laser);
+    }
+
+    .miembro-nombre {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      color: var(--blanco);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .miembro-rol {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--laser);
+      margin-bottom: 0.75rem;
+    }
+
+    .miembro-desc {
+      font-size: 0.82rem;
+      color: var(--gris-texto);
+      font-weight: 300;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       REDES SOCIALES
+       ═══════════════════════════════════════════════════════════ -->
+    #redes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .red-card {
+      background: var(--grafito);
+      border: 1px solid var(--acero);
+      border-radius: var(--radio-md);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+      min-width: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .red-card:hover {
+      border-color: var(--laser);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(255,107,26,0.15);
+    }
+
+    .red-icono { font-size: 2rem; }
+
+    .red-nombre {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gris-texto);
+    }
+
+    .red-handle {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      color: var(--laser);
+      letter-spacing: 0.08em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SKELETONS DE CARGA (tono oscuro)
+       ═══════════════════════════════════════════════════════════ */
+    .skeleton {
+      background: linear-gradient(
+        90deg,
+        var(--grafito) 25%,
+        var(--grafito-claro) 50%,
+        var(--grafito) 75%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: var(--radio-md);
+      border: 1px solid var(--acero);
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .msg-vacio {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--gris-texto);
+    }
+
+    .msg-vacio .icono-grande { font-size: 3rem; margin-bottom: 1rem; }
+
+    .msg-vacio h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--blanco-60);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       LIGHTBOX
+       ═══════════════════════════════════════════════════════════ */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.97);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    #lightbox.activo { display: flex; }
+
+    #lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radio-md);
+      border: 1px solid var(--acero);
+      box-shadow: 0 0 60px rgba(255,107,26,0.2);
+    }
+
+    #lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--grafito);
+      border: 1px solid var(--acero);
+      color: var(--blanco-60);
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radio-sm);
+      cursor: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+      font-family: 'DM Mono', monospace;
+    }
+
+    #lightbox-close:hover {
+      border-color: var(--laser);
+      color: var(--laser);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════ -->
+    footer {
+      background: var(--carbon);
+      border-top: 1px solid var(--acero);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    /* Logos en el footer */
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radio-sm);
+      object-fit: contain;
+      background: var(--grafito);
+      padding: 4px;
+      border: 1px solid var(--acero);
+      opacity: 0.6;
+    }
+
+    /* Nombre CUTLAB en el footer */
+    .footer-nombre {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--laser);
+      letter-spacing: 0.1em;
+    }
+
+    /* Info central del footer */
+    .footer-centro {
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--blanco-30);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+    }
+
+    /* Mención a la técnica académica */
+    .footer-tecnica {
+      text-align: right;
+      font-size: 0.72rem;
+      color: var(--blanco-30);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.04em;
+      line-height: 1.8;
+    }
+
+    .footer-tecnica strong {
+      color: rgba(255,107,26,0.5);
+      display: block;
+      margin-top: 4px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════════════ -->
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+      .hero-sub { border-left: none; border-top: 2px solid var(--laser); padding: 1rem 0 0; margin: 0 auto 2rem; }
+      .hero-tag { justify-content: center; }
+      .hero-materiales, .hero-ctas { justify-content: center; }
+      .hero-panel { margin-top: 2rem; }
+      .footer-inner { grid-template-columns: 1fr; text-align: center; }
+      .footer-logos { justify-content: center; }
+      .footer-tecnica { text-align: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .contenedor { padding: 0 1rem; }
+      .seccion { padding: 3.5rem 0; }
+      .mision-vision-grid { grid-template-columns: 1fr; }
+      #tutoriales-grid { grid-template-columns: 1fr; }
+      /* En móvil restaurar cursor normal */
+      * { cursor: auto; }
+      .cursor-punto, .cursor-anillo { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Cursor personalizado (solo desktop) -->
+  <div class="cursor-punto" id="cursorPunto"></div>
+  <div class="cursor-anillo" id="cursorAnillo"></div>
+
+  <!-- Barra de progreso de carga -->
+  <div class="barra-carga" id="barraProgreso"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BARRA DE NAVEGACIÓN
+       ═══════════════════════════════════════════════════════════ -->
+  <nav>
+    <a class="nav-logo" href="#inicio">
+      <!-- ARCHIVO: img/logo.png — logo de CUTLAB -->
+      <img class="nav-logo-img" src="img/logo.png" alt="CUTLAB" />
+      <span class="nav-nombre">CUT<span>LAB</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#tutoriales">Tutoriales</a></li>
+      <li><a href="#nosotros">Equipo</a></li>
+      <li><a href="#redes">Redes</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="hero" id="inicio">
+
+    <!-- Columna izquierda: texto -->
+    <div class="hero-texto">
+      <div class="hero-tag">CUTLAB · Cortadora Láser CO₂ · IEDP</div>
+
+      <h1>CUT<br>LAB<span class="punto-laser">.</span></h1>
+
+      <p class="hero-sub">
+        Diseñamos en Adobe Illustrator. Cortamos con láser CO₂.
+        Creamos productos únicos con precisión milimétrica — desde el concepto hasta el producto final.
+      </p>
+
+      <div class="hero-materiales">
+        <span class="material-chip">MDF</span>
+        <span class="material-chip">Acrílico</span>
+        <span class="material-chip">Madera</span>
+        <span class="material-chip">Cuero</span>
+        <span class="material-chip">Illustrator</span>
+        <span class="material-chip">Láser CO₂</span>
+      </div>
+
+      <div class="hero-ctas">
+        <a class="btn-laser" href="#catalogo">Ver catálogo →</a>
+        <a class="btn-outline-laser" href="#tutoriales">Tutoriales</a>
+      </div>
+    </div>
+
+    <!-- Columna derecha: logos + ficha técnica -->
+    <div class="hero-panel">
+      <div class="hero-logos">
+        <!-- ARCHIVO: img/logo.png — logo de CUTLAB -->
+        <img class="logo-cutlab" src="img/logo.png" alt="CUTLAB Logo" />
+        <div class="logos-divisor"></div>
+        <!-- ARCHIVO: img/escudo.png — escudo de la IEDP -->
+        <img class="logo-iedp" src="img/escudo.png" alt="Escudo IEDP" />
+      </div>
+
+      <!-- Ficha técnica de la máquina / proceso -->
+      <!-- Estos datos se cargan estáticos — son specs del laboratorio -->
+      <div class="hero-specs">
+        <div class="specs-titulo">// especificaciones del laboratorio</div>
+        <div class="spec-linea">
+          <span class="spec-label">Máquina</span>
+          <span class="spec-valor laser">Cortadora Láser CO₂</span>
+        </div>
+        <div class="spec-linea">
+          <span class="spec-label">Software</span>
+          <span class="spec-valor">Adobe Illustrator</span>
+        </div>
+        <div class="spec-linea">
+          <span class="spec-label">Materiales</span>
+          <span class="spec-valor">MDF · Acrílico · Madera</span>
+        </div>
+        <div class="spec-linea">
+          <span class="spec-label">Institución</span>
+          <span class="spec-valor">IEDP · Cúcuta</span>
+        </div>
+        <div class="spec-linea">
+          <span class="spec-label">Integrantes</span>
+          <span class="spec-valor laser">04</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MISIÓN Y VISIÓN
+       Archivo: equipo/equipo.json
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="seccion seccion-carbon" id="mision">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <div class="seccion-num">01 — IDENTIDAD</div>
+        <h2>Misión & Visión</h2>
+        <p>El propósito que define cada línea que cortamos</p>
+      </div>
+      <div class="mision-vision-grid" id="mision-vision-contenido">
+        <div class="skeleton" style="height:220px"></div>
+        <div class="skeleton" style="height:220px"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       GALERÍA
+       Archivo: galeria/galeria.json
+       Formato:
+       [
+         {
+           "nombre": "Corte de llavero en MDF",
+           "categoria": "Proceso",
+           "archivo": "proceso-llavero.jpg"
+         },
+         {
+           "nombre": "Señal decorativa en acrílico",
+           "categoria": "Producto",
+           "archivo": "senal-acrilico.jpg"
+         }
+       ]
+       Categorías sugeridas: "Proceso", "Producto", "Diseño", "Taller"
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="seccion" id="galeria">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <div class="seccion-num">02 — PROCESO Y RESULTADOS</div>
+        <h2>Galería</h2>
+        <p>Del diseño digital al producto físico — cada foto cuenta el proceso</p>
+      </div>
+      <div class="galeria-filtros" id="galeria-filtros">
+        <button class="filtro-btn activo" onclick="filtrarGaleria('todos')">// todos</button>
+      </div>
+      <div id="galeria-grid">
+        <div class="skeleton" style="height:260px"></div>
+        <div class="skeleton" style="height:260px"></div>
+        <div class="skeleton" style="height:260px"></div>
+        <div class="skeleton" style="height:260px"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATÁLOGO DE PRODUCTOS
+       Archivo: catalogo/catalogo.json
+       Formato:
+       [
+         {
+           "nombre": "Llavero personalizado",
+           "descripcion": "Llavero en MDF cortado a láser con diseño personalizable",
+           "material": "MDF 3mm",
+           "precio": "$5.000",
+           "imagen": "llavero-mdf.jpg",
+           "especificaciones": ["MDF 3mm", "Personalizable", "Corte láser"],
+           "disponible": true
+         }
+       ]
+       Las imágenes de productos deben ir en catalogo/
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="seccion seccion-carbon" id="catalogo">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <div class="seccion-num">03 — PRODUCTOS</div>
+        <h2>Catálogo</h2>
+        <p>Cada pieza diseñada digitalmente y cortada con precisión láser</p>
+      </div>
+      <div id="catalogo-grid">
+        <div class="skeleton" style="height:380px"></div>
+        <div class="skeleton" style="height:380px"></div>
+        <div class="skeleton" style="height:380px"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TUTORIALES EN VIDEO
+       Archivo: tutoriales/tutoriales.json
+       Formato:
+       [
+         {
+           "titulo": "Diseño de llavero en Illustrator",
+           "paso": "01 — DISEÑO EN ILLUSTRATOR",
+           "descripcion": "Cómo vectorizar el diseño en Adobe Illustrator paso a paso",
+           "duracion": "12 min",
+           "youtube_id": "CODIGO_YOUTUBE"
+         },
+         {
+           "titulo": "Corte en máquina láser CO₂",
+           "paso": "02 — CORTE EN MÁQUINA",
+           "descripcion": "Configuración de potencia y velocidad para cortar MDF 3mm",
+           "duracion": "8 min",
+           "youtube_id": "CODIGO_YOUTUBE"
+         }
+       ]
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="seccion" id="tutoriales">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <div class="seccion-num">04 — APRENDE</div>
+        <h2>Videotutoriales</h2>
+        <p>Illustrator → archivo de corte → máquina láser → producto terminado</p>
+      </div>
+      <div id="tutoriales-grid">
+        <div class="skeleton" style="height:300px"></div>
+        <div class="skeleton" style="height:300px"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EQUIPO — 4 INTEGRANTES
+       Archivo: equipo/equipo.json
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="seccion seccion-carbon" id="nosotros">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <div class="seccion-num">05 — EL EQUIPO</div>
+        <h2>Quiénes Somos</h2>
+        <p id="sobre-nosotros-texto">Cargando...</p>
+      </div>
+      <div id="equipo-grid">
+        <div class="skeleton" style="height:280px"></div>
+        <div class="skeleton" style="height:280px"></div>
+        <div class="skeleton" style="height:280px"></div>
+        <div class="skeleton" style="height:280px"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REDES SOCIALES
+       Archivo: redes/redes.json
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="seccion" id="redes">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <div class="seccion-num">06 — CONTACTO</div>
+        <h2>Redes Sociales</h2>
+        <p>Síguenos para ver nuevos productos, procesos y pedidos</p>
+      </div>
+      <div id="redes-grid">
+        <div class="skeleton" style="height:130px;width:150px;border-radius:var(--radio-md)"></div>
+        <div class="skeleton" style="height:130px;width:150px;border-radius:var(--radio-md)"></div>
+        <div class="skeleton" style="height:130px;width:150px;border-radius:var(--radio-md)"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <!-- Logos -->
+      <div>
+        <div class="footer-logos">
+          <img class="footer-logo" src="img/logo.png" alt="CUTLAB" />
+          <img class="footer-logo" src="img/escudo.png" alt="IEDP" />
+        </div>
+        <div class="footer-nombre" style="margin-top:1rem">CUTLAB<span style="color:var(--laser)">.</span></div>
+      </div>
+
+      <!-- Centro -->
+      <div class="footer-centro">
+        <p>Diseño y corte en láser CO₂</p>
+        <p>Institución Educativa La Divina Pastora</p>
+        <p>Cúcuta · Norte de Santander · Colombia</p>
+      </div>
+
+      <!-- Técnica -->
+      <div class="footer-tecnica">
+        <p>Proyecto académico</p>
+        <strong>TÉCNICA EN INTEGRACIÓN<br>DE CONTENIDOS DIGITALES</strong>
+        <p style="margin-top:6px">IEDP · 2025</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <button id="lightbox-close" onclick="cerrarLightbox()">ESC</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       JAVASCRIPT
+       ═══════════════════════════════════════════════════════════ -->
+  <script>
+
+    /* ════ CURSOR PERSONALIZADO ════════════════════════════════ */
+    const punto = document.getElementById('cursorPunto');
+    const anillo = document.getElementById('cursorAnillo');
+
+    /* El punto sigue al mouse inmediatamente */
+    document.addEventListener('mousemove', (e) => {
+      punto.style.left = e.clientX + 'px';
+      punto.style.top  = e.clientY + 'px';
+      /* El anillo sigue con un pequeño retraso (lo hace el CSS transition) */
+      anillo.style.left = e.clientX + 'px';
+      anillo.style.top  = e.clientY + 'px';
+    });
+
+    /* El anillo se agranda al pasar sobre links y botones */
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        anillo.style.width  = '50px';
+        anillo.style.height = '50px';
+      });
+      el.addEventListener('mouseleave', () => {
+        anillo.style.width  = '30px';
+        anillo.style.height = '30px';
+      });
+    });
+
+    /* ════ BARRA DE PROGRESO ════════════════════════════════════
+       Avanza durante la carga de la página y desaparece al terminar */
+    const barra = document.getElementById('barraProgreso');
+    let progreso = 0;
+    const intervalo = setInterval(() => {
+      progreso += Math.random() * 15;
+      if (progreso > 90) progreso = 90; /* Se detiene en 90% hasta que carga todo */
+      barra.style.width = progreso + '%';
+    }, 200);
+
+    /* ════ CARGA PRINCIPAL ══════════════════════════════════════ */
+    let todasLasFotos = [];
+
+    window.addEventListener('load', function () {
+      /* Completa la barra al 100% */
+      clearInterval(intervalo);
+      barra.style.width = '100%';
+      setTimeout(() => { barra.style.opacity = '0'; }, 500);
+
+      Promise.allSettled([
+        cargarEquipoYMision(),
+        cargarGaleria(),
+        cargarCatalogo(),
+        cargarTutoriales(),
+        cargarRedes()
+      ]);
+    });
+
+
+    /* ════ EQUIPO Y MISIÓN ══════════════════════════════════════ */
+    async function cargarEquipoYMision() {
+      try {
+        const resp = await fetch('equipo/equipo.json');
+        if (!resp.ok) throw new Error('equipo.json no encontrado');
+        const d = await resp.json();
+
+        document.getElementById('mision-vision-contenido').innerHTML = `
+          <div class="mv-card">
+            <div class="mv-card-num">01</div>
+            <h3>Misión</h3>
+            <p>${d.mision || 'Próximamente...'}</p>
+          </div>
+          <div class="mv-card">
+            <div class="mv-card-num">02</div>
+            <h3>Visión</h3>
+            <p>${d.vision || 'Próximamente...'}</p>
+          </div>
+        `;
+
+        document.getElementById('sobre-nosotros-texto').textContent =
+          d.sobre_nosotros || 'Cuatro estudiantes unidos por el diseño y la fabricación digital.';
+
+        const grid = document.getElementById('equipo-grid');
+        if (!d.integrantes || d.integrantes.length === 0) {
+          grid.innerHTML = mensajeVacio('👤', 'SIN INTEGRANTES', 'Agrega integrantes en equipo/equipo.json');
+          return;
+        }
+
+        grid.innerHTML = d.integrantes.map((p, i) => `
+          <div class="miembro-card">
+            <div class="miembro-card-num">0${i+1}</div>
+            <img
+              class="miembro-foto"
+              src="equipo/${p.foto}"
+              alt="${escHtml(p.nombre)}"
+              onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.nombre)}&background=1e252c&color=ff6b1a&size=200'"
+            />
+            <div class="miembro-nombre">${escHtml(p.nombre)}</div>
+            <div class="miembro-rol">${escHtml(p.rol)}</div>
+            <p class="miembro-desc">${escHtml(p.descripcion)}</p>
+          </div>
+        `).join('');
+
+      } catch (err) {
+        document.getElementById('mision-vision-contenido').innerHTML = `
+          <div class="mv-card"><div class="mv-card-num">01</div><h3>Misión</h3><p style="color:var(--gris-texto)">Agrega equipo/equipo.json</p></div>
+          <div class="mv-card"><div class="mv-card-num">02</div><h3>Visión</h3><p style="color:var(--gris-texto)">Agrega equipo/equipo.json</p></div>
+        `;
+        document.getElementById('sobre-nosotros-texto').textContent = 'Información próximamente.';
+        document.getElementById('equipo-grid').innerHTML = mensajeVacio('👤', 'AGREGA EL EQUIPO', 'Crea equipo/equipo.json');
+        console.warn(err.message);
+      }
+    }
+
+
+    /* ════ GALERÍA ══════════════════════════════════════════════ */
+    async function cargarGaleria() {
+      const grid = document.getElementById('galeria-grid');
+      const filtrosDiv = document.getElementById('galeria-filtros');
+      try {
+        const resp = await fetch('galeria/galeria.json');
+        if (!resp.ok) throw new Error();
+        todasLasFotos = await resp.json();
+
+        if (!todasLasFotos.length) {
+          grid.innerHTML = mensajeVacio('📷', 'SIN FOTOS', 'Agrega fotos en galeria/galeria.json');
+          return;
+        }
+
+        /* Generar filtros dinámicos */
+        const cats = [...new Set(todasLasFotos.map(f => f.categoria).filter(Boolean))];
+        if (cats.length) {
+          filtrosDiv.innerHTML = `<button class="filtro-btn activo" onclick="filtrarGaleria('todos')">// todos</button>`
+            + cats.map(c => `<button class="filtro-btn" onclick="filtrarGaleria('${escHtml(c)}')">${escHtml(c)}</button>`).join('');
+        }
+
+        renderFotos(todasLasFotos, grid);
+
+      } catch {
+        grid.innerHTML = mensajeVacio('📷', 'SIN GALERÍA', 'Crea galeria/galeria.json');
+      }
+    }
+
+    function filtrarGaleria(cat) {
+      document.querySelectorAll('.filtro-btn').forEach(b => {
+        b.classList.toggle('activo',
+          (cat === 'todos' && b.textContent === '// todos') || b.textContent === cat);
+      });
+      const filtradas = cat === 'todos' ? todasLasFotos : todasLasFotos.filter(f => f.categoria === cat);
+      renderFotos(filtradas, document.getElementById('galeria-grid'));
+    }
+
+    function renderFotos(fotos, grid) {
+      grid.innerHTML = fotos.map(f => `
+        <div class="foto-card" onclick="abrirLightbox('galeria/${f.archivo}', '${escHtml(f.nombre)}')">
+          <div class="foto-thumb">
+            <img src="galeria/${f.archivo}" alt="${escHtml(f.nombre)}" loading="lazy" />
+          </div>
+          <div class="foto-overlay">
+            <div class="foto-overlay-info">
+              <div class="foto-nombre">${escHtml(f.nombre)}</div>
+              ${f.categoria ? `<div class="foto-cat">// ${escHtml(f.categoria)}</div>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+
+    /* ════ CATÁLOGO ═════════════════════════════════════════════ */
+    async function cargarCatalogo() {
+      const grid = document.getElementById('catalogo-grid');
+      try {
+        const resp = await fetch('catalogo/catalogo.json');
+        if (!resp.ok) throw new Error();
+        const productos = await resp.json();
+
+        if (!productos.length) {
+          grid.innerHTML = mensajeVacio('⚙️', 'SIN PRODUCTOS', 'Agrega productos en catalogo/catalogo.json');
+          return;
+        }
+
+        grid.innerHTML = productos.map(p => {
+          const imgHTML = p.imagen
+            ? `<img src="catalogo/${p.imagen}" alt="${escHtml(p.nombre)}" loading="lazy" />`
+            : `<div class="producto-img-placeholder">⚙️</div>`;
+
+          const specsHTML = (p.especificaciones || [])
+            .map(s => `<span class="producto-spec-tag">${escHtml(s)}</span>`).join('');
+
+          const badge = p.disponible !== false
+            ? '<span class="producto-badge">DISPONIBLE</span>'
+            : '<span class="producto-badge" style="border-color:var(--gris-texto);color:var(--gris-texto)">AGOTADO</span>';
+
+          return `
+            <div class="producto-card">
+              <div class="producto-img">
+                ${imgHTML}
+                ${p.material ? `<span class="producto-material-badge">${escHtml(p.material)}</span>` : ''}
+              </div>
+              <div class="producto-info">
+                <div class="producto-nombre">${escHtml(p.nombre)}</div>
+                <p class="producto-desc">${escHtml(p.descripcion || '')}</p>
+                ${specsHTML ? `<div class="producto-specs">${specsHTML}</div>` : ''}
+                <div class="producto-footer">
+                  <span class="producto-precio">${escHtml(p.precio)}</span>
+                  ${badge}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+      } catch {
+        grid.innerHTML = mensajeVacio('⚙️', 'SIN CATÁLOGO', 'Crea catalogo/catalogo.json');
+      }
+    }
+
+
+    /* ════ TUTORIALES ═══════════════════════════════════════════ */
+    async function cargarTutoriales() {
+      const grid = document.getElementById('tutoriales-grid');
+      try {
+        const resp = await fetch('tutoriales/tutoriales.json');
+        if (!resp.ok) throw new Error();
+        const tuts = await resp.json();
+
+        if (!tuts.length) {
+          grid.innerHTML = mensajeVacio('🎬', 'SIN TUTORIALES', 'Agrega tutoriales en tutoriales/tutoriales.json');
+          return;
+        }
+
+        grid.innerHTML = tuts.map(t => `
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe
+                src="https://www.youtube.com/embed/${t.youtube_id}"
+                title="${escHtml(t.titulo)}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="tutorial-info">
+              <div class="tutorial-paso">${escHtml(t.paso || 'TUTORIAL')}</div>
+              <div class="tutorial-titulo">${escHtml(t.titulo)}</div>
+              <p class="tutorial-desc">${escHtml(t.descripcion || '')}</p>
+              ${t.duracion ? `<div class="tutorial-duracion">⏱ ${escHtml(t.duracion)}</div>` : ''}
+            </div>
+          </div>
+        `).join('');
+
+      } catch {
+        grid.innerHTML = mensajeVacio('🎬', 'SIN TUTORIALES', 'Crea tutoriales/tutoriales.json');
+      }
+    }
+
+
+    /* ════ REDES ════════════════════════════════════════════════ */
+    async function cargarRedes() {
+      const grid = document.getElementById('redes-grid');
+      try {
+        const resp = await fetch('redes/redes.json');
+        if (!resp.ok) throw new Error();
+        const redes = await resp.json();
+
+        if (!redes.length) {
+          grid.innerHTML = mensajeVacio('📡', 'SIN REDES', 'Agrega redes en redes/redes.json');
+          return;
+        }
+
+        grid.innerHTML = redes.map(r => `
+          <a class="red-card" href="${r.url}" target="_blank" rel="noopener noreferrer">
+            <span class="red-icono">${r.icono || '🔗'}</span>
+            <span class="red-nombre">${escHtml(r.red)}</span>
+            <span class="red-handle">${escHtml(r.handle)}</span>
+          </a>
+        `).join('');
+
+      } catch {
+        grid.innerHTML = mensajeVacio('📡', 'SIN REDES', 'Crea redes/redes.json');
+      }
+    }
+
+
+    /* ════ LIGHTBOX ═════════════════════════════════════════════ */
+    function abrirLightbox(src, alt) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-img').alt = alt;
+      document.getElementById('lightbox').classList.add('activo');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarLightbox() {
+      document.getElementById('lightbox').classList.remove('activo');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) cerrarLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') cerrarLightbox();
+    });
+
+
+    /* ════ AUXILIARES ═══════════════════════════════════════════ */
+    function mensajeVacio(icono, titulo, desc) {
+      return `<div class="msg-vacio"><div class="icono-grande">${icono}</div><h3>${titulo}</h3><p>${desc}</p></div>`;
+    }
+
+    function escHtml(t) {
+      if (typeof t !== 'string') return '';
+      return t.replace(/&/g,'&amp;').replace(/</g,'&lt;')
+               .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    }
+
+  </script>
+
+</body>
+</html>
