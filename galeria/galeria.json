@@ -1,0 +1,10 @@
+[
+  { "nombre": "Diseño vectorial en Illustrator", "categoria": "Diseño", "archivo": "diseno-illustrator.jpg" },
+  { "nombre": "Proceso de corte en MDF", "categoria": "Proceso", "archivo": "corte-mdf.jpg" },
+  { "nombre": "Llaveros terminados", "categoria": "Producto", "archivo": "llaveros.jpg" },
+  { "nombre": "Grabado en acrílico", "categoria": "Proceso", "archivo": "grabado-acrilico.jpg" },
+  { "nombre": "Señales decorativas en madera", "categoria": "Producto", "archivo": "senales-madera.jpg" },
+  { "nombre": "Taller de cortadora láser IEDP", "categoria": "Taller", "archivo": "taller-laser.jpg" },
+  { "nombre": "Portarretratos en MDF", "categoria": "Producto", "archivo": "portarretratos.jpg" },
+  { "nombre": "Configuración de parámetros de corte", "categoria": "Proceso", "archivo": "parametros-corte.jpg" }
+]
