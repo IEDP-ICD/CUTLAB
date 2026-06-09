@@ -1,0 +1,23 @@
+[
+  {
+    "titulo": "Diseño de llavero en Adobe Illustrator",
+    "paso": "01 — DISEÑO EN ILLUSTRATOR",
+    "descripcion": "Cómo crear el diseño vectorial desde cero en Adobe Illustrator: trazados, texto en curvas, exportación a formato de corte.",
+    "duracion": "12 min",
+    "youtube_id": "PEGA_EL_ID_DEL_VIDEO_AQUI"
+  },
+  {
+    "titulo": "Corte en cortadora láser CO₂",
+    "paso": "02 — CORTE EN MÁQUINA",
+    "descripcion": "Configuración de potencia y velocidad para MDF 3mm, cargue del archivo y supervisión del proceso de corte.",
+    "duracion": "8 min",
+    "youtube_id": "PEGA_EL_ID_DEL_VIDEO_AQUI"
+  },
+  {
+    "titulo": "Acabados: pintura y ensamblaje",
+    "paso": "03 — POST-PROCESO",
+    "descripcion": "Técnicas de acabado: lijado fino, aplicación de pintura acrílica, barniz protector y ensamblaje de piezas.",
+    "duracion": "10 min",
+    "youtube_id": "PEGA_EL_ID_DEL_VIDEO_AQUI"
+  }
+]
