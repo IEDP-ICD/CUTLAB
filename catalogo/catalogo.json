@@ -1,0 +1,38 @@
+[
+  {
+    "nombre": "Llavero personalizado",
+    "descripcion": "Llavero cortado a láser con diseño personalizable: nombre, inicial, figura o logo. Acabado natural o pintado.",
+    "material": "MDF 3mm",
+    "precio": "$5.000",
+    "imagen": "llavero.jpg",
+    "especificaciones": ["MDF 3mm", "Personalizable", "Corte láser", "5x5cm aprox"],
+    "disponible": true
+  },
+  {
+    "nombre": "Señal decorativa",
+    "descripcion": "Señal para habitación, negocio o regalo. Texto y diseño completamente personalizados con tipografía vectorial.",
+    "material": "MDF 5mm",
+    "precio": "$15.000",
+    "imagen": "senal.jpg",
+    "especificaciones": ["MDF 5mm", "Texto personalizado", "20x10cm aprox"],
+    "disponible": true
+  },
+  {
+    "nombre": "Portarretratos láser",
+    "descripcion": "Portarretratos con grabado decorativo en el marco. Diseño elegante cortado con precisión milimétrica.",
+    "material": "MDF 4mm",
+    "precio": "$20.000",
+    "imagen": "portarretratos.jpg",
+    "especificaciones": ["MDF 4mm", "Grabado decorativo", "Foto 10x15cm"],
+    "disponible": true
+  },
+  {
+    "nombre": "Figura decorativa acrílico",
+    "descripcion": "Figura decorativa en acrílico transparente o de colores, cortada con láser. Ideal para regalo o decoración.",
+    "material": "Acrílico 3mm",
+    "precio": "$18.000",
+    "imagen": "figura-acrilico.jpg",
+    "especificaciones": ["Acrílico 3mm", "Varios colores", "Diseño a elección"],
+    "disponible": true
+  }
+]
