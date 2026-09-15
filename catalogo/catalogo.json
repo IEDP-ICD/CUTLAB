@@ -34,5 +34,14 @@
     "imagen": "figura-acrilico.jpg",
     "especificaciones": ["Acrílico 3mm", "Varios colores", "Diseño a elección"],
     "disponible": true
+  },
+  {
+    "nombre": "Cristo imantado dorado",
+    "descripcion": "Cristo de 10 cm de alto con imán para pegar en la nevera, cortado en acrílico dorado espejo y acrílico negro mate.",
+    "material": "Acrílico dorado espejo y negro mate",
+    "precio": "$10.000",
+    "imagen": "cristo-imantado-dorado.jpg",
+    "especificaciones": ["Acrílico dorado espejo", "Acrílico negro mate", "10 cm de alto", "Imán para nevera"],
+    "disponible": true
   }
 ]
