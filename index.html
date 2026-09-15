@@ -18,7 +18,7 @@
   ║  │   ├── catalogo.json         ← productos con precio        ║
   ║  │   └── (fotos de productos)                                ║
   ║  ├── tutoriales/                                             ║
-  ║  │   └── tutoriales.json       ← videotutoriales YouTube     ║
+  ║  │   └── tutoriales.json       ← videos de TikTok             ║
   ║  ├── equipo/                                                 ║
   ║  │   ├── equipo.json           ← misión, visión, integrantes ║
   ║  │   └── (fotos del equipo)                                  ║
@@ -47,7 +47,7 @@
   <style>
     /* ═══════════════════════════════════════════════════════════
        VARIABLES GLOBALES
-       Paleta industrial: negro, gris antracita, naranja láser,
+       Paleta industrial: negro, gris antracita, morado neón,
        blancos fríos. Elegante, técnico, hiperrealista.
        ═══════════════════════════════════════════════════════════ */
     :root {
@@ -58,11 +58,11 @@
       --grafito-claro:  #1e252c;   /* Grafito más claro — hover de tarjetas */
       --acero:          #252d36;   /* Acero — bordes y separadores */
 
-      /* Acento principal: naranja láser (el color del haz de una cortadora) */
-      --laser:          #ff6b1a;   /* Naranja láser — color principal de acento */
-      --laser-claro:    #ff8c47;   /* Naranja claro — hover */
-      --laser-suave:    #3d1a08;   /* Naranja muy oscuro — fondos de badges */
-      --laser-glow: 0 0 20px rgba(255, 107, 26, 0.4); /* Resplandor naranja */
+      /* Acento principal: morado neón (el color del haz de una cortadora) */
+      --laser:          #b026ff;   /* morado láser — color principal de acento */
+      --laser-claro:    #d17aff;   /* morado claro — hover */
+      --laser-suave:    #2a0a3d;   /* morado muy oscuro — fondos de badges */
+      --laser-glow: 0 0 20px rgba(176, 38, 255, 0.4); /* Resplandor morado */
 
       /* Blancos y grises para texto */
       --blanco:         #ffffff;
@@ -78,7 +78,7 @@
       --radio-lg:  14px;
       --radio-xl:  24px;
 
-      /* Sombras con tono naranja */
+      /* Sombras con tono morado */
       --sombra-sm:  0 2px 12px rgba(0,0,0,0.5);
       --sombra-md:  0 6px 28px rgba(0,0,0,0.6);
       --sombra-lg:  0 12px 48px rgba(0,0,0,0.7);
@@ -103,7 +103,7 @@
 
     /* ═══════════════════════════════════════════════════════════
        CURSOR PERSONALIZADO
-       Pequeño punto naranja que sigue al mouse — toque industrial
+       Pequeño punto morado que sigue al mouse — toque industrial
        ═══════════════════════════════════════════════════════════ */
     /* El cursor real se oculta y se reemplaza con el elemento .cursor */
     * { cursor: none; }
@@ -128,7 +128,7 @@
       position: fixed;
       width: 30px;
       height: 30px;
-      border: 1.5px solid rgba(255, 107, 26, 0.5);
+      border: 1.5px solid rgba(176, 38, 255, 0.5);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9998;
@@ -138,7 +138,7 @@
 
     /* ═══════════════════════════════════════════════════════════
        LÍNEA DE CARGA
-       Barra de progreso naranja en la parte superior de la página
+       Barra de progreso morado en la parte superior de la página
        ═══════════════════════════════════════════════════════════ */
     .barra-carga {
       position: fixed;
@@ -154,8 +154,8 @@
 
     /* ═══════════════════════════════════════════════════════════
        BARRA DE NAVEGACIÓN
-       Fondo carbón casi transparente con línea inferior naranja sutil
-       ═══════════════════════════════════════════════════════════ -->
+       Fondo carbón casi transparente con línea inferior morado sutil
+       ═══════════════════════════════════════════════════════════ */
     nav {
       position: sticky;
       top: 0;
@@ -198,7 +198,7 @@
       line-height: 1;
     }
 
-    /* Punto naranja decorativo en el nombre */
+    /* Punto morado decorativo en el nombre */
     .nav-nombre span {
       color: var(--laser);
     }
@@ -222,7 +222,7 @@
       position: relative;
     }
 
-    /* Línea naranja debajo al hacer hover */
+    /* Línea morado debajo al hacer hover */
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -261,13 +261,13 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,107,26,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,107,26,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(176,38,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(176,38,255,0.04) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
     }
 
-    /* Resplandor naranja intenso desde la esquina derecha (el "láser") */
+    /* Resplandor morado intenso desde la esquina derecha (el "láser") */
     .hero::after {
       content: '';
       position: absolute;
@@ -275,8 +275,8 @@
       height: 800px;
       border-radius: 50%;
       background: radial-gradient(circle,
-        rgba(255,107,26,0.12) 0%,
-        rgba(255,107,26,0.04) 40%,
+        rgba(176,38,255,0.12) 0%,
+        rgba(176,38,255,0.04) 40%,
         transparent 70%);
       top: -200px;
       right: -200px;
@@ -322,7 +322,7 @@
       margin-bottom: 1rem;
     }
 
-    /* Punto naranja en el título */
+    /* Punto morado en el título */
     .hero h1 .punto-laser {
       color: var(--laser);
       text-shadow: var(--laser-glow);
@@ -373,7 +373,7 @@
       flex-wrap: wrap;
     }
 
-    /* Botón principal naranja sólido */
+    /* Botón principal morado sólido */
     .btn-laser {
       background: var(--laser);
       color: var(--negro);
@@ -397,7 +397,7 @@
       transform: translateY(-2px);
     }
 
-    /* Botón ghost con borde naranja */
+    /* Botón ghost con borde morado */
     .btn-outline-laser {
       background: transparent;
       color: var(--laser);
@@ -446,11 +446,11 @@
       object-fit: contain;
       background: var(--grafito);
       padding: 8px;
-      /* Borde con resplandor naranja */
+      /* Borde con resplandor morado */
       border: 1px solid var(--acero);
       box-shadow:
-        0 0 0 1px rgba(255,107,26,0.2),
-        inset 0 0 30px rgba(255,107,26,0.05),
+        0 0 0 1px rgba(176,38,255,0.2),
+        inset 0 0 30px rgba(176,38,255,0.05),
         var(--sombra-lg);
       animation: aparecerPanel 1s ease-out;
     }
@@ -523,7 +523,7 @@
       font-size: 0.82rem;
     }
 
-    /* Valor con acento naranja */
+    /* Valor con acento morado */
     .spec-valor.laser { color: var(--laser); }
 
     /* Animación de entrada para el panel derecho */
@@ -607,7 +607,7 @@
       overflow: hidden;
     }
 
-    /* Línea lateral naranja */
+    /* Línea lateral morado */
     .mv-card::before {
       content: '';
       position: absolute;
@@ -778,7 +778,7 @@
     .producto-card:hover {
       border-color: var(--laser);
       transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(255,107,26,0.15);
+      box-shadow: 0 8px 32px rgba(176,38,255,0.15);
     }
 
     /* Imagen del producto */
@@ -888,7 +888,7 @@
       font-size: 1.8rem;
       color: var(--laser);
       letter-spacing: 0.05em;
-      text-shadow: 0 0 20px rgba(255,107,26,0.3);
+      text-shadow: 0 0 20px rgba(176,38,255,0.3);
     }
 
     /* Badge de disponibilidad */
@@ -904,12 +904,15 @@
     }
 
     /* ═══════════════════════════════════════════════════════════
-       TUTORIALES EN VIDEO
-       Videotutoriales de Adobe Illustrator y cortadora láser
+       VIDEOS — todos son de TikTok, no se maneja YouTube.
+       TikTok no permite incrustar un reproductor en un sitio
+       estático sin backend, así que cada ficha es un enlace con la
+       miniatura real del video (traída con la API pública oEmbed
+       de TikTok) y un botón de play que abre el video en TikTok.
        ═══════════════════════════════════════════════════════════ */
     #tutoriales-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 20px;
     }
 
@@ -922,20 +925,59 @@
     }
 
     .tutorial-card:hover {
-      border-color: rgba(255,107,26,0.4);
+      border-color: rgba(176,38,255,0.4);
     }
 
-    /* Contenedor del video 16:9 */
+    /* Miniatura del video en proporción vertical (formato TikTok) */
     .tutorial-video {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 9 / 16;
       background: var(--negro);
+      position: relative;
+      display: block;
     }
 
-    .tutorial-video iframe {
+    .tutorial-video img {
       width: 100%;
       height: 100%;
-      border: none;
+      object-fit: cover;
       display: block;
+    }
+
+    .tutorial-video-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--grafito), var(--laser-suave));
+    }
+
+    /* Botón de play superpuesto a la miniatura */
+    .tutorial-play-badge {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    .tutorial-video:hover .tutorial-play-badge {
+      background: rgba(0,0,0,0.45);
+    }
+
+    .tutorial-play-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--negro);
     }
 
     /* Info del tutorial */
@@ -944,15 +986,6 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
-    }
-
-    /* Paso del proceso (ej: 01 — DISEÑO EN ILLUSTRATOR) */
-    .tutorial-paso {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--laser);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
     }
 
     .tutorial-titulo {
@@ -968,14 +1001,6 @@
       color: var(--gris-texto);
       font-weight: 300;
       line-height: 1.6;
-    }
-
-    /* Duración del video */
-    .tutorial-duracion {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--blanco-30);
-      margin-top: 4px;
     }
 
     /* ═══════════════════════════════════════════════════════════
@@ -1011,7 +1036,7 @@
     }
 
     .miembro-card:hover {
-      border-color: rgba(255,107,26,0.4);
+      border-color: rgba(176,38,255,0.4);
       transform: translateY(-4px);
     }
 
@@ -1064,7 +1089,7 @@
 
     /* ═══════════════════════════════════════════════════════════
        REDES SOCIALES
-       ═══════════════════════════════════════════════════════════ -->
+       ═══════════════════════════════════════════════════════════ */
     #redes-grid {
       display: flex;
       flex-wrap: wrap;
@@ -1090,7 +1115,7 @@
     .red-card:hover {
       border-color: var(--laser);
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(255,107,26,0.15);
+      box-shadow: 0 8px 24px rgba(176,38,255,0.15);
     }
 
     .red-icono { font-size: 2rem; }
@@ -1171,7 +1196,7 @@
       object-fit: contain;
       border-radius: var(--radio-md);
       border: 1px solid var(--acero);
-      box-shadow: 0 0 60px rgba(255,107,26,0.2);
+      box-shadow: 0 0 60px rgba(176,38,255,0.2);
     }
 
     #lightbox-close {
@@ -1200,7 +1225,7 @@
 
     /* ═══════════════════════════════════════════════════════════
        FOOTER
-       ═══════════════════════════════════════════════════════════ -->
+       ═══════════════════════════════════════════════════════════ */
     footer {
       background: var(--carbon);
       border-top: 1px solid var(--acero);
@@ -1266,7 +1291,7 @@
     }
 
     .footer-tecnica strong {
-      color: rgba(255,107,26,0.5);
+      color: rgba(176,38,255,0.5);
       display: block;
       margin-top: 4px;
       letter-spacing: 0.08em;
@@ -1274,7 +1299,7 @@
 
     /* ═══════════════════════════════════════════════════════════
        RESPONSIVE
-       ═══════════════════════════════════════════════════════════ -->
+       ═══════════════════════════════════════════════════════════ */
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
@@ -1325,7 +1350,7 @@
     <ul class="nav-links">
       <li><a href="#galeria">Galería</a></li>
       <li><a href="#catalogo">Catálogo</a></li>
-      <li><a href="#tutoriales">Tutoriales</a></li>
+      <li><a href="#tutoriales">Videos</a></li>
       <li><a href="#nosotros">Equipo</a></li>
       <li><a href="#redes">Redes</a></li>
     </ul>
@@ -1359,7 +1384,7 @@
 
       <div class="hero-ctas">
         <a class="btn-laser" href="#catalogo">Ver catálogo →</a>
-        <a class="btn-outline-laser" href="#tutoriales">Tutoriales</a>
+        <a class="btn-outline-laser" href="#tutoriales">Videos</a>
       </div>
     </div>
 
@@ -1494,31 +1519,26 @@
 
 
   <!-- ═══════════════════════════════════════════════════════════
-       TUTORIALES EN VIDEO
+       VIDEOS — todos son de TikTok, no se maneja YouTube.
        Archivo: tutoriales/tutoriales.json
        Formato:
        [
          {
-           "titulo": "Diseño de llavero en Illustrator",
-           "paso": "01 — DISEÑO EN ILLUSTRATOR",
-           "descripcion": "Cómo vectorizar el diseño en Adobe Illustrator paso a paso",
-           "duracion": "12 min",
-           "youtube_id": "CODIGO_YOUTUBE"
-         },
-         {
-           "titulo": "Corte en máquina láser CO₂",
-           "paso": "02 — CORTE EN MÁQUINA",
-           "descripcion": "Configuración de potencia y velocidad para cortar MDF 3mm",
-           "duracion": "8 min",
-           "youtube_id": "CODIGO_YOUTUBE"
+           "titulo": "Construcción de stand de llaveros",
+           "tiktok_url": "https://vt.tiktok.com/CODIGO_DEL_VIDEO/"
          }
        ]
+       Al cargar la página, el código consulta la API pública oEmbed
+       de TikTok para traer la miniatura real del video. Si TikTok no
+       responde (sin internet, video privado o eliminado), la ficha
+       muestra un ícono en su lugar — igual se puede tocar para ir
+       al video.
        ═══════════════════════════════════════════════════════════ -->
   <section class="seccion" id="tutoriales">
     <div class="contenedor">
       <div class="seccion-header">
         <div class="seccion-num">04 — APRENDE</div>
-        <h2>Videotutoriales</h2>
+        <h2>Videos</h2>
         <p>Illustrator → archivo de corte → máquina láser → producto terminado</p>
       </div>
       <div id="tutoriales-grid">
@@ -1703,7 +1723,7 @@
               class="miembro-foto"
               src="equipo/${p.foto}"
               alt="${escHtml(p.nombre)}"
-              onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.nombre)}&background=1e252c&color=ff6b1a&size=200'"
+              onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.nombre)}&background=1e252c&color=b026ff&size=200'"
             />
             <div class="miembro-nombre">${escHtml(p.nombre)}</div>
             <div class="miembro-rol">${escHtml(p.rol)}</div>
@@ -1836,32 +1856,64 @@
         const tuts = await resp.json();
 
         if (!tuts.length) {
-          grid.innerHTML = mensajeVacio('🎬', 'SIN TUTORIALES', 'Agrega tutoriales en tutoriales/tutoriales.json');
+          grid.innerHTML = mensajeVacio('🎬', 'SIN VIDEOS', 'Agrega videos en tutoriales/tutoriales.json');
           return;
         }
 
-        grid.innerHTML = tuts.map(t => `
+        grid.innerHTML = tuts.map((t, i) => `
           <div class="tutorial-card">
-            <div class="tutorial-video">
-              <iframe
-                src="https://www.youtube.com/embed/${t.youtube_id}"
-                title="${escHtml(t.titulo)}"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy"
-              ></iframe>
-            </div>
+            <a class="tutorial-video" href="${escHtml(t.tiktok_url)}" target="_blank" rel="noopener noreferrer" aria-label="Ver en TikTok: ${escHtml(t.titulo)}">
+              <div class="tutorial-video-placeholder" id="tutorial-thumb-${i}">🎵</div>
+              <div class="tutorial-play-badge"><span class="tutorial-play-icon">▶</span></div>
+            </a>
             <div class="tutorial-info">
-              <div class="tutorial-paso">${escHtml(t.paso || 'TUTORIAL')}</div>
               <div class="tutorial-titulo">${escHtml(t.titulo)}</div>
-              <p class="tutorial-desc">${escHtml(t.descripcion || '')}</p>
-              ${t.duracion ? `<div class="tutorial-duracion">⏱ ${escHtml(t.duracion)}</div>` : ''}
+              <p class="tutorial-desc" id="tutorial-desc-${i}"></p>
             </div>
           </div>
         `).join('');
 
+        /* Trae la miniatura real (y la descripción) de cada video desde TikTok */
+        tuts.forEach((t, i) => {
+          if (t.tiktok_url) cargarDatosTikTok(t.tiktok_url, i);
+        });
+
       } catch {
-        grid.innerHTML = mensajeVacio('🎬', 'SIN TUTORIALES', 'Crea tutoriales/tutoriales.json');
+        grid.innerHTML = mensajeVacio('🎬', 'SIN VIDEOS', 'Crea tutoriales/tutoriales.json');
+      }
+    }
+
+    /*
+    ══════════════════════════════════════════════════════════════
+    FUNCIÓN: cargarDatosTikTok — Consulta la API pública oEmbed de
+    TikTok (sin backend ni API key) para reemplazar el ícono musical
+    por la miniatura real del video. Si TikTok no responde (sin
+    internet, video privado o eliminado), la ficha se queda con el
+    ícono — igual funciona el enlace para verlo en TikTok.
+    ══════════════════════════════════════════════════════════════
+    */
+    async function cargarDatosTikTok(tiktokUrl, i) {
+      try {
+        const resp = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(tiktokUrl)}`);
+        if (!resp.ok) throw new Error('oEmbed de TikTok no disponible');
+        const data = await resp.json();
+
+        const thumbEl = document.getElementById(`tutorial-thumb-${i}`);
+        if (thumbEl && data.thumbnail_url) {
+          const img = document.createElement('img');
+          img.id = `tutorial-thumb-${i}`;
+          img.src = data.thumbnail_url;
+          img.alt = data.title || 'Video de TikTok';
+          img.loading = 'lazy';
+          thumbEl.replaceWith(img);
+        }
+
+        const descEl = document.getElementById(`tutorial-desc-${i}`);
+        if (descEl && data.title) {
+          descEl.textContent = data.title;
+        }
+      } catch (err) {
+        console.warn('No se pudo obtener la miniatura de TikTok:', err.message);
       }
     }
 
