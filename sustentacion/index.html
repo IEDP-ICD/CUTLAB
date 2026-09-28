@@ -73,7 +73,7 @@
 
     .slide-inner {
       position: relative; z-index: 1;
-      width: 100%; max-width: 1260px; max-height: 100%;
+      width: 100%; max-width: 1560px; max-height: 100%;
       overflow: hidden;
       display: flex; flex-direction: column; justify-content: center;
       gap: clamp(.5rem, 1.6vh, 1.1rem);
@@ -157,9 +157,9 @@
     .miembro-desc { font-size: clamp(.82rem, 1.75vh, .96rem); color: var(--gris-texto); line-height: 1.4; font-weight: 300; position: relative; z-index: 1; }
 
     /* Dos columnas */
-    .dos-col { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1rem, 3vw, 2.2rem); align-items: center; }
-    .dos-col.invertido { grid-template-columns: .9fr 1.1fr; }
-    .dos-col img { width: 100%; max-height: clamp(160px, 42vh, 380px); object-fit: cover; border: 1px solid var(--acero); box-shadow: var(--sombra-md); }
+    .dos-col { display: grid; grid-template-columns: 1fr .95fr; gap: clamp(1.2rem, 3.4vw, 2.8rem); align-items: center; }
+    .dos-col.invertido { grid-template-columns: .95fr 1fr; }
+    .dos-col img { width: 100%; height: clamp(280px, 66vh, 680px); object-fit: cover; border: 1px solid var(--acero); box-shadow: var(--sombra-md); }
     .dos-col .col-texto { display: flex; flex-direction: column; gap: clamp(.4rem, 1.2vh, .8rem); }
 
     .dos-tarjetas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
@@ -311,6 +311,22 @@
       .producto-card .foto { aspect-ratio: 16/9; }
       .producto-card .info { padding: .3rem .4rem; }
       .producto-card .nombre { font-size: clamp(.7rem, 1.6vh, .82rem); }
+      .paleta-grid { gap: .4rem; }
+      .paleta-chip .swatch { height: 34px; }
+      .paleta-chip .info { padding: .25rem .3rem; }
+      .paleta-chip .nombre { font-size: .74rem; }
+      .paleta-chip .hex { font-size: .64rem; margin-top: 1px; }
+      .fuentes-row { gap: .5rem; }
+      .fuente-card { padding: .45rem .7rem; }
+      .fuente-card .muestra { font-size: 1.15rem; margin-bottom: 1px; }
+      .fuente-card .etiqueta-fuente { font-size: .64rem; }
+      .portada-logo { width: 54px; height: 54px; margin-bottom: .35rem; }
+      .portada h1 { font-size: clamp(2.6rem, 9vh, 4.6rem); }
+      .portada-linea { margin: .5rem auto; }
+      .portada .subt { font-size: clamp(.9rem, 2vh, 1.05rem); }
+      .equipo-pills { gap: 6px; }
+      .equipo-pills span { font-size: .78rem; padding: 5px 12px; }
+      .portada-footer { font-size: .7rem; }
     }
   </style>
 </head>
@@ -391,7 +407,7 @@
               <p>CUTLAB integra una cortadora láser con redes sociales (Instagram, TikTok, WhatsApp) para producir piezas en madera y acrílico, documentar el proceso y gestionar pedidos en línea.</p>
             </div>
           </div>
-          <img src="img/equipo-evento.jpg" alt="Integrantes de CUTLAB en un evento del SENA" />
+          <img src="img/equipo-evento.jpg" alt="Integrantes de CUTLAB en un evento del SENA" style="object-position:center 78%;" />
         </div>
       </div>
     </section>
@@ -545,8 +561,8 @@
         <div class="dos-col">
           <p class="lead">El empaque y etiquetado protege el producto y a la vez comunica la marca: protección, comodidad, promoción e identidad en cada entrega de CUTLAB.</p>
           <div class="dos-col" style="grid-template-columns:1fr 1fr; gap:.8rem;">
-            <img src="img/hangtag.jpg" alt="Etiqueta colgante CUTLAB" style="max-height:clamp(140px,32vh,300px);" />
-            <img src="img/caja-empaque.jpg" alt="Caja de empaque con sticker CUTLAB" style="max-height:clamp(140px,32vh,300px);" />
+            <img src="img/hangtag.jpg" alt="Etiqueta colgante CUTLAB" style="height:clamp(220px,58vh,540px); object-fit:contain; background:var(--grafito);" />
+            <img src="img/caja-empaque.jpg" alt="Caja de empaque con sticker CUTLAB" style="height:clamp(220px,58vh,540px); object-fit:contain; background:var(--grafito);" />
           </div>
         </div>
       </div>
@@ -602,9 +618,9 @@
         <div class="dos-col">
           <p class="lead">Difundimos nuestros productos en TikTok e Instagram con videos del proceso de corte y armado, mostrando resultados reales y conectando con la comunidad creativa de Cúcuta.</p>
           <div class="dos-col" style="grid-template-columns:1fr 1fr 1fr; gap:.6rem;">
-            <img src="img/tiktok-perfil.jpg" alt="Perfil de TikTok de CUTLAB" style="max-height:clamp(140px,34vh,320px);" />
-            <img src="img/tiktok-navidad.jpg" alt="Video de TikTok de adornos navideños" style="max-height:clamp(140px,34vh,320px);" />
-            <img src="img/tiktok-carro.jpg" alt="Video de TikTok de carro en MDF" style="max-height:clamp(140px,34vh,320px);" />
+            <img src="img/tiktok-perfil.jpg" alt="Perfil de TikTok de CUTLAB" style="height:clamp(240px,60vh,560px); object-fit:contain; background:var(--grafito);" />
+            <img src="img/tiktok-navidad.jpg" alt="Video de TikTok de adornos navideños" style="height:clamp(240px,60vh,560px); object-fit:contain; background:var(--grafito);" />
+            <img src="img/tiktok-carro.jpg" alt="Video de TikTok de carro en MDF" style="height:clamp(240px,60vh,560px); object-fit:contain; background:var(--grafito);" />
           </div>
         </div>
       </div>
