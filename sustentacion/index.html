@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  SUSTENTACIÓN DEL PROYECTO — CUTLAB                           ║
+  ║  Página autocontenida, no enlazada desde el sitio principal. ║
+  ║  Accesible solo escribiendo la URL: /sustentacion/           ║
+  ║  No aparece en el menú ni en buscadores (ver robots.txt).    ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Sustentación · CUTLAB</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══ Paleta idéntica a la del sitio principal ═══ */
+    :root {
+      --negro:          #080a0c;
+      --carbon:         #0f1215;
+      --grafito:        #171c21;
+      --grafito-claro:  #1e252c;
+      --acero:          #252d36;
+      --laser:          #b026ff;
+      --laser-claro:    #d17aff;
+      --laser-suave:    #2a0a3d;
+      --laser-glow:     0 0 20px rgba(176, 38, 255, 0.4);
+      --blanco:         #ffffff;
+      --blanco-90:      rgba(255,255,255,0.90);
+      --blanco-60:      rgba(255,255,255,0.60);
+      --blanco-30:      rgba(255,255,255,0.30);
+      --blanco-10:      rgba(255,255,255,0.08);
+      --gris-texto:     #8a9bb0;
+      --radio-sm: 4px; --radio-md: 8px; --radio-lg: 14px;
+      --sombra-sm: 0 2px 12px rgba(0,0,0,0.5);
+      --sombra-md: 0 6px 28px rgba(0,0,0,0.6);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: var(--negro);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--blanco-90);
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ═══ Deck ═══ */
+    .deck { position: relative; width: 100vw; height: 100svh; height: 100vh; overflow: hidden; }
+
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(3.6rem, 9vh, 5.2rem) clamp(1.2rem, 4vw, 4rem) clamp(4.2rem, 10vh, 5.6rem);
+      opacity: 0;
+      transform: translateX(60px) scale(0.97);
+      pointer-events: none;
+      transition: transform 0.7s cubic-bezier(0.34, 1.1, 0.64, 1), opacity 0.5s ease;
+      overflow: hidden;
+    }
+    .slide.activa { opacity: 1; transform: translateX(0) scale(1); pointer-events: auto; z-index: 2; }
+    .slide.saliendo-izq { transform: translateX(-70px) scale(0.97); opacity: 0; }
+    .slide.saliendo-der { transform: translateX(70px) scale(0.97); opacity: 0; }
+
+    .slide-inner {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 1260px; max-height: 100%;
+      overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center;
+      gap: clamp(.5rem, 1.6vh, 1.1rem);
+    }
+    .slide-inner > * {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.34, 1.3, 0.64, 1);
+    }
+    .slide.activa .slide-inner > * { opacity: 1; transform: translateY(0); }
+    .slide.activa .slide-inner > *:nth-child(1) { transition-delay: 0.05s; }
+    .slide.activa .slide-inner > *:nth-child(2) { transition-delay: 0.13s; }
+    .slide.activa .slide-inner > *:nth-child(3) { transition-delay: 0.21s; }
+    .slide.activa .slide-inner > *:nth-child(4) { transition-delay: 0.29s; }
+    .slide.activa .slide-inner > *:nth-child(5) { transition-delay: 0.37s; }
+
+    /* ═══ Tipografía y comunes ═══ */
+    .seccion-num {
+      font-family: 'DM Mono', monospace; font-size: clamp(.68rem, 1.5vh, .82rem);
+      color: var(--laser); letter-spacing: .18em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .seccion-num::after { content: ''; flex: 1; max-width: 50px; height: 1px; background: var(--laser); }
+
+    .slide h2 {
+      font-family: 'Bebas Neue', sans-serif; font-weight: 400;
+      font-size: clamp(1.9rem, 6.4vh, 3.6rem); line-height: 0.98; color: var(--blanco);
+      letter-spacing: .03em;
+    }
+    .slide h2 span { color: var(--laser); }
+
+    .lead {
+      font-size: clamp(.78rem, 1.8vh, 1rem); color: var(--gris-texto); line-height: 1.55; max-width: 760px; font-weight: 300;
+    }
+
+    .tarjeta {
+      background: var(--grafito); border: 1px solid var(--acero);
+      padding: clamp(.8rem, 2vh, 1.4rem) clamp(1rem, 2.2vw, 1.6rem); position: relative; overflow: hidden;
+    }
+    .tarjeta h3 {
+      font-family: 'Bebas Neue', sans-serif; font-weight: 400; letter-spacing: .03em;
+      font-size: clamp(1.05rem, 2.4vh, 1.4rem); color: var(--laser-claro);
+      margin-bottom: clamp(.25rem, .8vh, .5rem); display: flex; align-items: center; gap: 8px;
+    }
+    .tarjeta p { font-size: clamp(.72rem, 1.65vh, .92rem); color: var(--gris-texto); line-height: 1.55; font-weight: 300; }
+
+    /* ═══ Slide 1: portada ═══ */
+    .portada { text-align: center; align-items: center; }
+    .portada-logo {
+      width: clamp(84px, 15vh, 148px); height: clamp(84px, 15vh, 148px); border-radius: 50%;
+      object-fit: cover; margin: 0 auto clamp(.6rem, 1.4vh, 1rem);
+      box-shadow: 0 0 0 4px var(--acero), var(--laser-glow); animation: flotar 6s ease-in-out infinite;
+    }
+    @keyframes flotar { 50% { transform: translateY(-10px); } }
+    .label {
+      font-family: 'DM Mono', monospace; font-size: clamp(.62rem, 1.3vh, .76rem); letter-spacing: .28em;
+      text-transform: uppercase; color: var(--laser); margin-bottom: clamp(.5rem, 1.2vh, .9rem);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .portada h1 {
+      font-family: 'Bebas Neue', sans-serif; font-weight: 400;
+      font-size: clamp(2.6rem, 8.4vh, 5.2rem); line-height: .92; color: var(--blanco); letter-spacing: .04em;
+    }
+    .portada h1 span { color: var(--laser); }
+    .portada-linea { width: 70px; height: 3px; background: var(--laser); margin: clamp(.7rem,1.6vh,1.1rem) auto; box-shadow: var(--laser-glow); }
+    .portada .subt { font-size: clamp(.78rem, 1.8vh, 1rem); color: var(--gris-texto); max-width: 38rem; margin: 0 auto; font-weight: 300; }
+    .equipo-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .equipo-pills span {
+      font-family: 'DM Mono', monospace; font-size: clamp(.66rem, 1.4vh, .8rem);
+      color: var(--blanco-90); border: 1px solid var(--acero); background: var(--blanco-10);
+      padding: 6px 14px; border-radius: var(--radio-sm);
+    }
+    .portada-footer { font-family: 'DM Mono', monospace; font-size: clamp(.6rem, 1.25vh, .7rem); color: var(--blanco-30); letter-spacing: .08em; text-transform: uppercase; }
+
+    /* ═══ Integrantes ═══ */
+    .integrantes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.6rem, 1.6vw, 1rem); }
+    .miembro-card { background: var(--grafito); border: 1px solid var(--acero); text-align: center; padding: clamp(.7rem, 1.8vh, 1.3rem) .8rem; position: relative; overflow: hidden; }
+    .miembro-num { position: absolute; bottom: -6px; right: 6px; font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vh, 3.6rem); color: var(--blanco-10); line-height: 1; pointer-events: none; }
+    .miembro-foto { width: clamp(56px, 10vh, 84px); height: clamp(56px, 10vh, 84px); border-radius: 50%; object-fit: cover; margin: 0 auto clamp(.4rem, 1vh, .7rem); border: 2px solid var(--laser); box-shadow: var(--laser-glow); position: relative; z-index: 1; }
+    .miembro-rol { font-family: 'DM Mono', monospace; font-size: clamp(.56rem, 1.2vh, .66rem); letter-spacing: .1em; text-transform: uppercase; color: var(--laser-claro); margin-bottom: 4px; position: relative; z-index: 1; }
+    .miembro-nombre { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1rem, 2.2vh, 1.35rem); letter-spacing: .02em; color: var(--blanco); margin-bottom: clamp(.3rem, .8vh, .5rem); position: relative; z-index: 1; }
+    .miembro-desc { font-size: clamp(.6rem, 1.3vh, .72rem); color: var(--gris-texto); line-height: 1.42; font-weight: 300; position: relative; z-index: 1; }
+
+    /* Dos columnas */
+    .dos-col { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1rem, 3vw, 2.2rem); align-items: center; }
+    .dos-col.invertido { grid-template-columns: .9fr 1.1fr; }
+    .dos-col img { width: 100%; max-height: clamp(160px, 42vh, 380px); object-fit: cover; border: 1px solid var(--acero); box-shadow: var(--sombra-md); }
+    .dos-col .col-texto { display: flex; flex-direction: column; gap: clamp(.4rem, 1.2vh, .8rem); }
+
+    .dos-tarjetas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
+
+    .objetivo-general {
+      background: linear-gradient(135deg, var(--laser-suave), rgba(176,38,255,.04));
+      border: 1px solid var(--laser); padding: clamp(.7rem, 1.8vh, 1.2rem) clamp(1rem, 2.2vw, 1.5rem);
+      font-size: clamp(.76rem, 1.75vh, .95rem); color: var(--blanco-90); line-height: 1.5; font-weight: 300;
+    }
+    .objetivo-general .etiqueta {
+      display: block; font-family: 'DM Mono', monospace; font-size: clamp(.58rem, 1.2vh, .68rem); letter-spacing: .14em;
+      text-transform: uppercase; color: var(--laser-claro); margin-bottom: 5px;
+    }
+
+    .lista-check { list-style: none; display: grid; gap: clamp(.35rem, 1vh, .6rem); }
+    .lista-check li {
+      display: flex; align-items: flex-start; gap: 10px; background: var(--grafito); border: 1px solid var(--acero);
+      padding: clamp(.4rem, 1.1vh, .7rem) clamp(.7rem, 1.6vw, 1rem); font-size: clamp(.7rem, 1.6vh, .88rem); color: var(--gris-texto); font-weight: 300;
+    }
+    .lista-check li::before { content: '▸'; flex-shrink: 0; color: var(--laser); font-weight: 700; font-size: 1rem; }
+
+    .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--acero); }
+    .mv-card { background: var(--grafito); padding: clamp(.8rem, 2vh, 1.5rem) clamp(1rem, 2vw, 1.6rem); }
+    .mv-card h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(1.05rem, 2.3vh, 1.4rem); color: var(--laser-claro); margin-bottom: clamp(.25rem, .7vh, .5rem); letter-spacing: .03em; }
+    .mv-card p { font-size: clamp(.68rem, 1.55vh, .84rem); color: var(--gris-texto); line-height: 1.5; font-weight: 300; }
+
+    .tech-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-chips span {
+      font-family: 'DM Mono', monospace; font-size: clamp(.64rem, 1.4vh, .78rem);
+      color: var(--blanco-90); border: 1px solid var(--acero); background: var(--blanco-10);
+      padding: clamp(.3rem, .9vh, .5rem) clamp(.6rem, 1.4vw, .9rem); border-radius: var(--radio-sm);
+    }
+
+    .servicio-bloque { background: var(--grafito); border: 1px solid var(--acero); padding: clamp(.6rem, 1.6vh, 1.1rem) clamp(.9rem, 2vw, 1.3rem); display: flex; gap: 12px; align-items: flex-start; margin-bottom: clamp(.5rem, 1.3vh, .9rem); }
+    .servicio-bloque .icono {
+      font-size: clamp(1rem, 2.2vh, 1.4rem); flex-shrink: 0; width: clamp(30px, 5.5vh, 42px); height: clamp(30px, 5.5vh, 42px);
+      background: var(--laser-suave); border: 1px solid var(--laser); display: flex; align-items: center; justify-content: center;
+    }
+    .servicio-bloque h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(.9rem, 2vh, 1.15rem); color: var(--blanco); margin-bottom: 2px; letter-spacing: .02em; }
+    .servicio-bloque p { font-size: clamp(.68rem, 1.5vh, .84rem); color: var(--gris-texto); line-height: 1.45; font-weight: 300; }
+
+    .productos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.5rem, 1.4vw, .9rem); }
+    .producto-card { background: var(--grafito); border: 1px solid var(--acero); overflow: hidden; }
+    .producto-card .foto { aspect-ratio: 1/1; overflow: hidden; }
+    .producto-card img { width: 100%; height: 100%; object-fit: cover; }
+    .producto-card .info { padding: clamp(.4rem, 1vh, .6rem) clamp(.5rem, 1vw, .7rem); }
+    .producto-card .nombre { font-family: 'DM Mono', monospace; font-size: clamp(.6rem, 1.3vh, .74rem); color: var(--blanco-90); }
+
+    .segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
+    .segmento-card { background: var(--grafito); border: 1px solid var(--acero); padding: clamp(.8rem, 2vh, 1.4rem); }
+    .segmento-card .icono { font-size: clamp(1.1rem, 2.4vh, 1.6rem); margin-bottom: clamp(.2rem, .6vh, .4rem); display: block; }
+    .segmento-card h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(.9rem, 2vh, 1.15rem); color: var(--laser-claro); margin-bottom: clamp(.2rem, .6vh, .4rem); letter-spacing: .02em; }
+    .segmento-card p { font-size: clamp(.68rem, 1.5vh, .86rem); color: var(--gris-texto); line-height: 1.5; font-weight: 300; }
+
+    .sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.6rem, 1.6vw, 1rem); }
+    .sector-card { background: var(--grafito); border: 1px solid var(--acero); overflow: hidden; }
+    .sector-card .foto { aspect-ratio: 4/3; overflow: hidden; }
+    .sector-card img { width: 100%; height: 100%; object-fit: cover; }
+    .sector-card .info { padding: clamp(.5rem, 1.3vh, .9rem) clamp(.6rem, 1.3vw, .9rem); }
+    .sector-card h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(.82rem, 1.9vh, 1.05rem); color: var(--laser-claro); letter-spacing: .03em; margin-bottom: 3px; }
+    .sector-card p { font-size: clamp(.62rem, 1.4vh, .78rem); color: var(--gris-texto); line-height: 1.4; font-weight: 300; }
+
+    /* Paleta de colores */
+    .paleta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(.5rem, 1.4vw, .9rem); }
+    .paleta-chip { border: 1px solid var(--acero); overflow: hidden; display: flex; flex-direction: column; }
+    .paleta-chip .swatch { height: clamp(55px, 13vh, 100px); }
+    .paleta-chip .info { background: var(--grafito); padding: clamp(.35rem, .9vh, .6rem) clamp(.35rem, .9vw, .55rem); text-align: center; }
+    .paleta-chip .nombre { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(.66rem, 1.5vh, .86rem); color: var(--blanco); letter-spacing: .02em; }
+    .paleta-chip .hex { font-family: 'DM Mono', monospace; font-size: clamp(.54rem, 1.15vh, .64rem); color: var(--gris-texto); margin-top: 2px; }
+    .fuentes-row { display: flex; gap: clamp(.7rem, 1.8vw, 1.3rem); justify-content: center; flex-wrap: wrap; }
+    .fuente-card { background: var(--grafito); border: 1px solid var(--acero); padding: clamp(.55rem, 1.5vh, .9rem) clamp(1rem, 2.2vw, 1.5rem); text-align: center; }
+    .fuente-card .muestra { font-size: clamp(1.05rem, 2.6vh, 1.7rem); margin-bottom: 2px; color: var(--laser-claro); }
+    .fuente-card .muestra.display { font-family: 'Bebas Neue', sans-serif; font-weight: 400; letter-spacing: .04em; }
+    .fuente-card .muestra.mono { font-family: 'DM Mono', monospace; }
+    .fuente-card .muestra.cuerpo { font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--blanco-90); }
+    .fuente-card .etiqueta-fuente { font-family: 'DM Mono', monospace; font-size: clamp(.58rem, 1.25vh, .7rem); color: var(--blanco-30); letter-spacing: .06em; text-transform: uppercase; }
+
+    /* Cierre */
+    .final { text-align: center; align-items: center; }
+    .final .logo-final { width: clamp(64px, 12vh, 100px); height: clamp(64px, 12vh, 100px); border-radius: 50%; object-fit: cover; margin: 0 auto clamp(.4rem, 1vh, .8rem); box-shadow: var(--laser-glow); }
+    .whatsapp-final {
+      display: inline-flex; align-items: center; gap: 8px; font-family: 'Bebas Neue', sans-serif; font-weight: 400;
+      letter-spacing: .05em; font-size: clamp(.85rem, 1.9vh, 1.05rem); color: var(--negro);
+      background: var(--laser); padding: clamp(.6rem, 1.6vh, .95rem) clamp(1.2rem, 2.6vw, 1.8rem);
+      text-decoration: none; box-shadow: var(--laser-glow); margin: 0 auto;
+    }
+
+    /* ═══ Controles de navegación ═══ */
+    .nav-controles {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      padding: clamp(.6rem, 1.6vh, 1rem) 1rem calc(clamp(.6rem, 1.6vh, 1rem) + env(safe-area-inset-bottom, 0px));
+      background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+    }
+    .nav-btn {
+      width: clamp(32px, 6vh, 40px); height: clamp(32px, 6vh, 40px); border: 1px solid var(--laser);
+      background: var(--grafito); color: var(--laser-claro);
+      font-size: clamp(.9rem, 2vh, 1.1rem); cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--laser-glow); transition: transform 0.25s cubic-bezier(0.34,1.5,0.64,1), background .2s;
+      flex-shrink: 0;
+    }
+    .nav-btn:hover { transform: scale(1.1); background: var(--laser-suave); }
+    .nav-btn:active { transform: scale(0.92); }
+    .nav-btn.deshabilitado { opacity: 0.3; pointer-events: none; }
+    .nav-puntos { display: flex; gap: 5px; flex-wrap: wrap; max-width: 44vw; justify-content: center; }
+    .nav-punto { width: 7px; height: 7px; background: var(--acero); border: none; cursor: pointer; padding: 0; transition: transform 0.25s, background 0.25s; }
+    .nav-punto.activo { background: var(--laser); transform: scale(1.5); box-shadow: var(--laser-glow); }
+    .nav-contador { font-family: 'DM Mono', monospace; font-size: clamp(.6rem, 1.3vh, .72rem); color: var(--gris-texto); min-width: 40px; text-align: center; }
+
+    @media (max-width: 680px) {
+      .integrantes-grid { grid-template-columns: repeat(2, 1fr); }
+      .dos-tarjetas, .mv-grid, .segmento-grid { grid-template-columns: 1fr; }
+      .productos-grid { grid-template-columns: repeat(2, 1fr); }
+      .dos-col, .dos-col.invertido { grid-template-columns: 1fr; }
+      .dos-col img { max-height: 20vh; }
+      .paleta-grid { grid-template-columns: repeat(3, 1fr); }
+      .nav-puntos { max-width: 38vw; }
+      .slide { padding: clamp(3.4rem, 8vh, 4.6rem) 1rem clamp(4.4rem, 11vh, 5.6rem); }
+      .slide h2 { font-size: clamp(1.6rem, 5.6vh, 2.6rem); }
+      .slide-inner { gap: clamp(.5rem, 1.5vh, 1rem); }
+
+      /* Estudio del sector: tarjetas horizontales compactas en vez de apiladas */
+      .sector-grid { grid-template-columns: 1fr; gap: .5rem; }
+      .sector-card { display: flex; align-items: stretch; }
+      .sector-card .foto { aspect-ratio: auto; width: 30%; flex-shrink: 0; }
+      .sector-card .info { padding: .5rem .7rem; }
+      .sector-card h3 { font-size: clamp(.78rem, 1.9vh, .95rem); }
+      .sector-card p { font-size: clamp(.6rem, 1.4vh, .72rem); line-height: 1.35; }
+    }
+
+    @media (max-height: 700px) {
+      .slide { padding: clamp(2.8rem, 7vh, 3.8rem) 1.1rem clamp(3.8rem, 9.5vh, 4.8rem); }
+      .slide-inner { gap: clamp(.4rem, 1.2vh, .7rem); }
+      .slide h2 { font-size: clamp(1.35rem, 5.4vh, 2.1rem); line-height: 1.05; }
+      .lead { font-size: clamp(.72rem, 2vh, .88rem); line-height: 1.42; }
+      .tarjeta { padding: .6rem .85rem; }
+      .tarjeta p { font-size: clamp(.7rem, 1.9vh, .84rem); line-height: 1.4; }
+      .tarjeta h3 { font-size: clamp(.86rem, 2.2vh, 1rem); margin-bottom: .3rem; }
+      .dos-tarjetas { gap: .55rem; }
+      .dos-col img { max-height: 15vh; }
+      .integrantes-grid { gap: .5rem; }
+      .miembro-card { padding: .55rem .6rem; }
+      .miembro-desc { display: none; }
+      .sector-grid { gap: .4rem; }
+      .sector-card .foto { width: 26%; }
+      .sector-card .info { padding: .4rem .6rem; }
+      .sector-card p { display: none; }
+      .productos-grid { gap: .4rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="deck" id="deck">
+
+    <!-- ═══ 1. PORTADA ═══ -->
+    <section class="slide" data-bg="1">
+      <div class="slide-inner portada">
+        <img class="portada-logo" src="../img/logo.png" alt="CUTLAB" />
+        <p class="label">Sustentación de proyecto · SENA</p>
+        <h1>CUT<span>LAB</span></h1>
+        <div class="portada-linea"></div>
+        <p class="subt" style="margin-bottom:1.1rem;">Emprendimiento escolar de corte láser CO₂ — diseño, producción y marketing digital.</p>
+        <div class="equipo-pills">
+          <span>Kleiber Blanco</span>
+          <span>Gabriela Linares</span>
+          <span>Ashley García</span>
+          <span>Nicol Rivera</span>
+        </div>
+        <p class="portada-footer" style="margin-top:1rem;">Instructora: Andrea Alvarado · Docente técnico: Víctor Manuel Escobar</p>
+      </div>
+    </section>
+
+    <!-- ═══ 2. INTEGRANTES ═══ -->
+    <section class="slide" data-bg="2">
+      <div class="slide-inner">
+        <p class="seccion-num">01 — El equipo</p>
+        <h2>Integrantes</h2>
+        <div class="integrantes-grid">
+          <div class="miembro-card">
+            <div class="miembro-num">01</div>
+            <img class="miembro-foto" src="../equipo/kleiber-futuro.jpeg" alt="Kleiber Blanco" />
+            <div class="miembro-rol">Diseño Illustrator</div>
+            <div class="miembro-nombre">Kleiber Blanco</div>
+            <p class="miembro-desc">Convierte las ideas del equipo en archivos vectoriales listos para corte.</p>
+          </div>
+          <div class="miembro-card">
+            <div class="miembro-num">02</div>
+            <img class="miembro-foto" src="https://ui-avatars.com/api/?name=Gabriela+Linares&background=1e252c&color=b026ff&size=200" alt="Gabriela Linares" />
+            <div class="miembro-rol">Operación de máquina</div>
+            <div class="miembro-nombre">Gabriela Linares</div>
+            <p class="miembro-desc">Maneja la cortadora láser CO₂ y supervisa cada proceso de corte.</p>
+          </div>
+          <div class="miembro-card">
+            <div class="miembro-num">03</div>
+            <img class="miembro-foto" src="https://ui-avatars.com/api/?name=Ashley+Garcia&background=1e252c&color=b026ff&size=200" alt="Ashley García" />
+            <div class="miembro-rol">Acabados y producción</div>
+            <div class="miembro-nombre">Ashley García</div>
+            <p class="miembro-desc">Lijado, pintura, ensamblaje y control de calidad de cada pieza.</p>
+          </div>
+          <div class="miembro-card">
+            <div class="miembro-num">04</div>
+            <img class="miembro-foto" src="https://ui-avatars.com/api/?name=Nicol+Rivera&background=1e252c&color=b026ff&size=200" alt="Nicol Rivera" />
+            <div class="miembro-rol">Marketing y ventas</div>
+            <div class="miembro-nombre">Nicol Rivera</div>
+            <p class="miembro-desc">Gestiona catálogo, redes sociales y atención a clientes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 3. NECESIDAD E IDEA ═══ -->
+    <section class="slide" data-bg="3">
+      <div class="slide-inner">
+        <p class="seccion-num">02 — El punto de partida</p>
+        <h2>Descripción de la <span>necesidad e idea</span></h2>
+        <div class="dos-col">
+          <div class="col-texto">
+            <div class="tarjeta">
+              <h3>La necesidad</h3>
+              <p>La IEDP necesita alternativas locales para producir objetos personalizados y materiales didácticos. Los estudiantes de Contenidos Digitales requieren espacios reales para practicar diseño, producción y marketing.</p>
+            </div>
+            <div class="tarjeta">
+              <h3>La propuesta</h3>
+              <p>CUTLAB integra una cortadora láser con redes sociales (Instagram, TikTok, WhatsApp) para producir piezas en madera y acrílico, documentar el proceso y gestionar pedidos en línea.</p>
+            </div>
+          </div>
+          <img src="img/equipo-evento.jpg" alt="Integrantes de CUTLAB en un evento del SENA" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 4. IDEA DE SOLUCIÓN INNOVADORA ═══ -->
+    <section class="slide" data-bg="4">
+      <div class="slide-inner">
+        <p class="seccion-num">03 — Nuestra propuesta</p>
+        <h2>Idea de solución <span>innovadora</span></h2>
+        <div class="dos-col invertido">
+          <img src="img/producto-2025.jpg" alt="Placa conmemorativa 2025 cortada en láser" />
+          <div class="col-texto">
+            <p class="lead">Gestionamos redes sociales para mostrar llaveros, cuadros, maquetas y diseños personalizados, con fotos, videos del proceso, reels y estrategias de marketing digital.</p>
+            <div class="objetivo-general" style="margin-bottom:0;">
+              <span class="etiqueta">Valor para el cliente</span>
+              Productos únicos con acabados de alta precisión, personalizados con nombres, frases o logos — algo diferente frente al mercado.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 5. OBJETIVOS ═══ -->
+    <section class="slide" data-bg="5">
+      <div class="slide-inner">
+        <p class="seccion-num">04 — Hacia dónde vamos</p>
+        <h2>Objetivos</h2>
+        <div class="dos-col">
+          <div class="col-texto">
+            <div class="objetivo-general">
+              <span class="etiqueta">Objetivo general</span>
+              Diseñar y ejecutar una estrategia digital para el emprendimiento de corte láser que dé a conocer sus productos y atraiga clientes.
+            </div>
+            <ul class="lista-check">
+              <li>Crear y administrar perfiles en redes sociales con identidad visual propia</li>
+              <li>Producir contenido multimedia: fotos, videos, reels y catálogos digitales</li>
+              <li>Medir resultados para evaluar el impacto en la visibilidad</li>
+            </ul>
+          </div>
+          <img src="img/cajas-grabadas.jpg" alt="Cajas decorativas grabadas con láser" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 6. JUSTIFICACIÓN ═══ -->
+    <section class="slide" data-bg="6">
+      <div class="slide-inner">
+        <p class="seccion-num">05 — Por qué vale la pena</p>
+        <h2>Justificación</h2>
+        <div class="dos-col invertido">
+          <img src="img/tangram-acrilico.jpg" alt="Tangram en acrílico de colores cortado a láser" />
+          <p class="lead">
+            Permite a los estudiantes aplicar los conocimientos de Contenidos Digitales en un emprendimiento real basado en la cortadora láser. Ofrece productos personalizados y de calidad, potenciados con estrategias digitales, y fomenta la creatividad, el trabajo en equipo y una experiencia de compra más cercana y confiable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 7. TECNOLOGÍAS ═══ -->
+    <section class="slide" data-bg="7">
+      <div class="slide-inner">
+        <p class="seccion-num">06 — Cómo lo haremos</p>
+        <h2>Tecnologías a <span>emplear</span></h2>
+        <div class="dos-col">
+          <div class="col-texto">
+            <p class="lead">Cortadora láser como maquinaria principal, computadores con software de diseño, cámaras/celulares para producción audiovisual, y redes sociales para difusión.</p>
+            <div class="tech-chips">
+              <span>Cortadora láser CO₂</span>
+              <span>Illustrator</span>
+              <span>CorelDraw</span>
+              <span>Photoshop</span>
+              <span>Canva</span>
+              <span>Instagram</span>
+              <span>Facebook</span>
+              <span>TikTok</span>
+            </div>
+          </div>
+          <img src="img/carro-mdf.jpg" alt="Carro armable en MDF cortado a láser" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 8. RECURSOS ═══ -->
+    <section class="slide" data-bg="8">
+      <div class="slide-inner">
+        <p class="seccion-num">07 — Lo que necesitamos</p>
+        <h2>Recursos</h2>
+        <div class="dos-col">
+          <div class="col-texto">
+            <div class="servicio-bloque"><span class="icono">🪵</span><div><h3>Materiales</h3><p>Madera, acrílico, cartón y otros insumos para la cortadora láser.</p></div></div>
+            <div class="servicio-bloque"><span class="icono">🌐</span><div><h3>Internet estable</h3><p>Para gestionar pedidos y publicar contenido digital.</p></div></div>
+            <div class="servicio-bloque"><span class="icono">🏭</span><div><h3>Espacio y embalaje</h3><p>Área de trabajo, almacenamiento, cajas, bolsas y etiquetas.</p></div></div>
+          </div>
+          <img src="img/llaveros-variados.jpg" alt="Llaveros de personajes grabados a láser" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 9. MISIÓN Y VISIÓN ═══ -->
+    <section class="slide" data-bg="9">
+      <div class="slide-inner">
+        <p class="seccion-num">08 — Nuestra identidad</p>
+        <h2>Misión & Visión</h2>
+        <div class="mv-grid">
+          <div class="mv-card">
+            <h3>Misión</h3>
+            <p>Diseñar, fabricar y comercializar productos artesanales de alta calidad con cortadora láser CO₂, integrando diseño digital y producción de precisión, para generar un emprendimiento sostenible que demuestre el potencial creativo y tecnológico de los estudiantes de la IEDP.</p>
+          </div>
+          <div class="mv-card">
+            <h3>Visión</h3>
+            <p>Consolidar a CUTLAB como el laboratorio de fabricación digital estudiantil más reconocido de Cúcuta, posicionando nuestros productos en mercados locales y digitales, y siendo referente de innovación en diseño y tecnología aplicada en el ámbito educativo regional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 10. PRODUCTOS Y SERVICIOS ═══ -->
+    <section class="slide" data-bg="10">
+      <div class="slide-inner">
+        <p class="seccion-num">09 — Lo que ofrecemos</p>
+        <h2>Descripción de <span>productos y servicios</span></h2>
+        <p class="lead" style="margin-bottom:.3rem;">Plataforma de corte láser con catálogo de productos en MDF/acrílico y cotizador de diseños; multimedia en time-lapse del proceso de fabricación.</p>
+        <div class="productos-grid">
+          <div class="producto-card"><div class="foto"><img src="img/llavero-ironman.jpg" alt="Llavero de Iron Man grabado" /></div><div class="info"><div class="nombre">Llavero grabado</div></div></div>
+          <div class="producto-card"><div class="foto"><img src="img/goku-acrilico.jpg" alt="Cuadro de Goku en acrílico" /></div><div class="info"><div class="nombre">Cuadro acrílico</div></div></div>
+          <div class="producto-card"><div class="foto"><img src="img/soporte-celular.jpg" alt="Soporte para celular grabado" /></div><div class="info"><div class="nombre">Soporte celular</div></div></div>
+          <div class="producto-card"><div class="foto"><img src="img/llavero-naruto.jpg" alt="Llavero de Naruto grabado" /></div><div class="info"><div class="nombre">Llavero temático</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 11. IMAGEN CORPORATIVA ═══ -->
+    <section class="slide" data-bg="11">
+      <div class="slide-inner">
+        <p class="seccion-num">10 — Nuestra marca</p>
+        <h2>Imagen <span>Corporativa</span></h2>
+        <div class="dos-col">
+          <p class="lead">
+            El logo de CUTLAB G²NK tiene un diseño moderno y tecnológico: fondo negro con borde circular en degradado de colores, el nombre en tonos dorados y un cabezal de máquina láser que representa precisión, innovación y calidad. CUTLAB significa "Laboratorio de Corte"; G²NK son las iniciales del equipo: dos Gabrielas (G²), Nicol (N) y Kleiber (K).
+          </p>
+          <img src="../img/logo.png" alt="Logo CUTLAB G²NK" style="max-height:clamp(140px,32vh,260px); object-fit:contain; background:var(--grafito); padding:1.2rem; border-radius:50%;" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 12. ETIQUETA Y EMPAQUE ═══ -->
+    <section class="slide" data-bg="12">
+      <div class="slide-inner">
+        <p class="seccion-num">11 — Presentación del producto</p>
+        <h2>Etiqueta y <span>Empaque</span></h2>
+        <div class="dos-col">
+          <p class="lead">El empaque y etiquetado protege el producto y a la vez comunica la marca: protección, comodidad, promoción e identidad en cada entrega de CUTLAB.</p>
+          <div class="dos-col" style="grid-template-columns:1fr 1fr; gap:.8rem;">
+            <img src="img/hangtag.jpg" alt="Etiqueta colgante CUTLAB" style="max-height:clamp(140px,32vh,300px);" />
+            <img src="img/caja-empaque.jpg" alt="Caja de empaque con sticker CUTLAB" style="max-height:clamp(140px,32vh,300px);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 13. ESTUDIO DEL SECTOR ═══ -->
+    <section class="slide" data-bg="13">
+      <div class="slide-inner">
+        <p class="seccion-num">12 — A quién servimos</p>
+        <h2>Estudio del <span>sector</span></h2>
+        <div class="sector-grid">
+          <div class="sector-card">
+            <div class="foto"><img src="img/medalla-idioma.jpg" alt="Medalla grabada para colegio" /></div>
+            <div class="info"><h3>Educativo</h3><p>Colegios, grados, izadas de bandera, medallas y placas de reconocimiento. El mercado más grande en Cúcuta.</p></div>
+          </div>
+          <div class="sector-card">
+            <div class="foto"><img src="img/soporte-maestro.jpg" alt="Recuerdo grabado día del maestro" /></div>
+            <div class="info"><h3>Eventos sociales</h3><p>15 años, comuniones, bodas — recuerdos en MDF y acrílico, muy vendidos en Prados del Este y El Bosque.</p></div>
+          </div>
+          <div class="sector-card">
+            <div class="foto"><img src="img/escudo-grabado.jpg" alt="Escudo institucional grabado en madera" /></div>
+            <div class="info"><h3>Empresarial pequeño</h3><p>Tiendas, iglesias y negocios: letreros, reconocimientos y detalles corporativos.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 14. SEGMENTO OBJETIVO ═══ -->
+    <section class="slide" data-bg="14">
+      <div class="slide-inner">
+        <p class="seccion-num">13 — A quién llegamos</p>
+        <h2>Segmento <span>Objetivo</span></h2>
+        <div class="segmento-grid">
+          <div class="segmento-card">
+            <span class="icono">📍</span>
+            <h3>Ubicación</h3>
+            <p>Institución Educativa La Divina Pastora y su comunidad cercana.</p>
+          </div>
+          <div class="segmento-card">
+            <span class="icono">🎯</span>
+            <h3>Perfil</h3>
+            <p>Clientes que buscan llaveros, cuadros, reconocimientos y obsequios en madera, acrílico, cartón paja, foami y forros de celular.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 15. PUBLICIDAD ═══ -->
+    <section class="slide" data-bg="15">
+      <div class="slide-inner">
+        <p class="seccion-num">14 — Cómo lo damos a conocer</p>
+        <h2>Publicidad</h2>
+        <div class="dos-col">
+          <p class="lead">Difundimos nuestros productos en TikTok e Instagram con videos del proceso de corte y armado, mostrando resultados reales y conectando con la comunidad creativa de Cúcuta.</p>
+          <div class="dos-col" style="grid-template-columns:1fr 1fr 1fr; gap:.6rem;">
+            <img src="img/tiktok-perfil.jpg" alt="Perfil de TikTok de CUTLAB" style="max-height:clamp(140px,34vh,320px);" />
+            <img src="img/tiktok-navidad.jpg" alt="Video de TikTok de adornos navideños" style="max-height:clamp(140px,34vh,320px);" />
+            <img src="img/tiktok-carro.jpg" alt="Video de TikTok de carro en MDF" style="max-height:clamp(140px,34vh,320px);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 16. PALETA DE COLORES ═══ -->
+    <section class="slide" data-bg="16">
+      <div class="slide-inner">
+        <p class="seccion-num">15 — Nuestra identidad visual</p>
+        <h2>Paleta de <span>colores</span></h2>
+        <div class="paleta-grid">
+          <div class="paleta-chip"><div class="swatch" style="background:#080a0c;"></div><div class="info"><div class="nombre">Negro</div><div class="hex">#080A0C</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#171c21;"></div><div class="info"><div class="nombre">Grafito</div><div class="hex">#171C21</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#252d36;"></div><div class="info"><div class="nombre">Acero</div><div class="hex">#252D36</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#b026ff;"></div><div class="info"><div class="nombre">Láser</div><div class="hex">#B026FF</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#d17aff;"></div><div class="info"><div class="nombre">Láser claro</div><div class="hex">#D17AFF</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#ffffff;"></div><div class="info"><div class="nombre">Blanco</div><div class="hex">#FFFFFF</div></div></div>
+        </div>
+        <div class="fuentes-row">
+          <div class="fuente-card"><div class="muestra display">CUTLAB</div><div class="etiqueta-fuente">Bebas Neue · títulos</div></div>
+          <div class="fuente-card"><div class="muestra cuerpo">Corte láser</div><div class="etiqueta-fuente">DM Sans · cuerpo</div></div>
+          <div class="fuente-card"><div class="muestra mono">01 — LASER</div><div class="etiqueta-fuente">DM Mono · técnico</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 17. CIERRE ═══ -->
+    <section class="slide" data-bg="17">
+      <div class="slide-inner final">
+        <img class="logo-final" src="../img/logo.png" alt="CUTLAB" />
+        <p class="label">Gracias por su atención</p>
+        <h2>¡Gracias!</h2>
+        <p class="subt" style="margin-bottom:0;">CUTLAB — de vectores a productos reales.<br>Técnica en Integración de Contenidos Digitales · SENA, IEDP La Divina Pastora.</p>
+        <a class="whatsapp-final" style="margin-top:1.1rem;" href="https://instagram.com/cutlab.iedp" target="_blank" rel="noopener noreferrer">📸 @cutlab.iedp</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══ Controles de navegación ═══ -->
+  <div class="nav-controles">
+    <button class="nav-btn" id="btnPrev" aria-label="Diapositiva anterior">‹</button>
+    <div class="nav-puntos" id="navPuntos"></div>
+    <button class="nav-btn" id="btnNext" aria-label="Siguiente diapositiva">›</button>
+    <span class="nav-contador" id="navContador">1 / 17</span>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const total = slides.length;
+    let actual = 0;
+
+    const puntosWrap = document.getElementById('navPuntos');
+    slides.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'nav-punto' + (i === 0 ? ' activo' : '');
+      btn.setAttribute('aria-label', `Ir a la diapositiva ${i + 1}`);
+      btn.addEventListener('click', () => irA(i));
+      puntosWrap.appendChild(btn);
+    });
+    const puntos = Array.from(document.querySelectorAll('.nav-punto'));
+
+    function actualizarUI() {
+      puntos.forEach((p, i) => p.classList.toggle('activo', i === actual));
+      document.getElementById('navContador').textContent = `${actual + 1} / ${total}`;
+      document.getElementById('btnPrev').classList.toggle('deshabilitado', actual === 0);
+      document.getElementById('btnNext').classList.toggle('deshabilitado', actual === total - 1);
+    }
+
+    function irA(indice) {
+      indice = Math.max(0, Math.min(total - 1, indice));
+      if (indice === actual) return;
+      const direccion = indice > actual ? 1 : -1;
+
+      slides.forEach((s, i) => {
+        s.classList.remove('activa', 'saliendo-izq', 'saliendo-der');
+        if (i === actual) {
+          s.classList.add(direccion > 0 ? 'saliendo-izq' : 'saliendo-der');
+        }
+      });
+
+      actual = indice;
+      slides[actual].classList.add('activa');
+      actualizarUI();
+    }
+
+    slides[0].classList.add('activa');
+    actualizarUI();
+
+    document.getElementById('btnPrev').addEventListener('click', () => irA(actual - 1));
+    document.getElementById('btnNext').addEventListener('click', () => irA(actual + 1));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') irA(actual + 1);
+      if (e.key === 'ArrowLeft') irA(actual - 1);
+    });
+
+    /* Navegación táctil (swipe horizontal) */
+    let touchStartX = 0, touchStartY = 0;
+    const deck = document.getElementById('deck');
+
+    deck.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    deck.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) irA(actual + 1); else irA(actual - 1);
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
