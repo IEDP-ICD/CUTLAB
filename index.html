@@ -1014,7 +1014,7 @@
        ═══════════════════════════════════════════════════════════ */
     #equipo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
       gap: 20px;
     }
 
@@ -1022,11 +1022,15 @@
       background: var(--grafito);
       border: 1px solid var(--acero);
       border-radius: var(--radio-md);
-      padding: 2rem 1.5rem;
-      text-align: center;
+      padding: 1.5rem;
+      text-align: left;
       transition: border-color 0.3s, transform 0.3s;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
     }
 
     /* Número decorativo de fondo */
@@ -1046,14 +1050,28 @@
       transform: translateY(-4px);
     }
 
-    /* Foto del integrante */
-    .miembro-foto {
-      width: 100px;
-      height: 100px;
-      border-radius: var(--radio-md); /* Cuadrado redondeado, no circular */
-      object-fit: cover;
+    /* Foto del integrante — contain, para no recortar ni distorsionar ninguna imagen
+       sin importar su relación de aspecto */
+    .miembro-foto-wrap {
+      width: 150px;
+      height: 150px;
+      flex-shrink: 0;
+      border-radius: var(--radio-md);
+      background: var(--negro);
       border: 1px solid var(--acero);
-      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .miembro-card:hover .miembro-foto-wrap { border-color: var(--laser); }
+
+    .miembro-foto {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       display: block;
       filter: grayscale(20%) contrast(1.05);
       /* Leve desaturado para estética hiperrealista oscura */
@@ -1062,22 +1080,26 @@
 
     .miembro-card:hover .miembro-foto {
       filter: grayscale(0%) contrast(1);
-      border-color: var(--laser);
     }
 
-    .miembro-nombre {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      color: var(--blanco);
-      letter-spacing: 0.08em;
-      margin-bottom: 4px;
+    .miembro-info {
+      flex: 1 1 auto;
+      min-width: 0;
       position: relative;
       z-index: 1;
     }
 
+    .miembro-nombre {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.35rem;
+      color: var(--blanco);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
     .miembro-rol {
       font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--laser);
@@ -1085,12 +1107,15 @@
     }
 
     .miembro-desc {
-      font-size: 0.82rem;
+      font-size: 0.86rem;
       color: var(--gris-texto);
       font-weight: 300;
       line-height: 1.6;
-      position: relative;
-      z-index: 1;
+    }
+
+    @media (max-width: 480px) {
+      .miembro-card { flex-direction: column; text-align: center; }
+      .miembro-info { text-align: center; }
     }
 
     /* ═══════════════════════════════════════════════════════════
@@ -1327,6 +1352,8 @@
       .seccion { padding: 3.5rem 0; }
       .mision-vision-grid { grid-template-columns: 1fr; }
       #tutoriales-grid { grid-template-columns: 1fr; }
+      #equipo-grid { grid-template-columns: 1fr; }
+      .miembro-foto-wrap { width: 120px; height: 120px; }
       #catalogo-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
       .producto-info { padding: 0.7rem; gap: 4px; }
       .producto-nombre { font-size: 0.9rem; }
@@ -1729,15 +1756,19 @@
         grid.innerHTML = d.integrantes.map((p, i) => `
           <div class="miembro-card">
             <div class="miembro-card-num">0${i+1}</div>
-            <img
-              class="miembro-foto"
-              src="equipo/${p.foto}"
-              alt="${escHtml(p.nombre)}"
-              onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.nombre)}&background=1e252c&color=b026ff&size=200'"
-            />
-            <div class="miembro-nombre">${escHtml(p.nombre)}</div>
-            <div class="miembro-rol">${escHtml(p.rol)}</div>
-            <p class="miembro-desc">${escHtml(p.descripcion)}</p>
+            <div class="miembro-foto-wrap">
+              <img
+                class="miembro-foto"
+                src="equipo/${p.foto}"
+                alt="${escHtml(p.nombre)}"
+                onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.nombre)}&background=1e252c&color=b026ff&size=200'"
+              />
+            </div>
+            <div class="miembro-info">
+              <div class="miembro-nombre">${escHtml(p.nombre)}</div>
+              <div class="miembro-rol">${escHtml(p.rol)}</div>
+              <p class="miembro-desc">${escHtml(p.descripcion)}</p>
+            </div>
           </div>
         `).join('');
 

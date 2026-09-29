@@ -7,25 +7,25 @@
       "nombre": "Kleiber Blanco",
       "rol": "Diseño en Illustrator",
       "descripcion": "Encargado del diseño vectorial en Adobe Illustrator. Convierte las ideas del equipo en archivos de corte listos para la máquina.",
-      "foto": "kleiber-futuro.jpeg"
+      "foto": "kleiber.jpg"
     },
     {
       "nombre": "Gabriela Linares",
       "rol": "Operación de la máquina",
       "descripcion": "Maneja la cortadora láser CO₂, calibra potencia y velocidad según el material, y supervisa cada proceso de corte y grabado.",
-      "foto": "integrante2.jpg"
+      "foto": "gabriela.jpg"
     },
     {
       "nombre": "Ashley García",
       "rol": "Acabados y producción",
       "descripcion": "Responsable del post-proceso: lijado, pintura, ensamblaje y control de calidad de cada pieza antes de la entrega al cliente.",
-      "foto": "integrante3.jpg"
+      "foto": "ashley.jpg"
     },
     {
       "nombre": "Nicol Rivera",
       "rol": "Marketing y ventas",
       "descripcion": "Gestiona el catálogo de productos, las redes sociales, los precios y la atención a clientes. También produce los videotutoriales del proceso.",
-      "foto": "integrante4.jpg"
+      "foto": "nicol.jpg"
     }
   ]
 }
