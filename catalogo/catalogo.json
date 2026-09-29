@@ -1,47 +1,632 @@
 [
   {
-    "nombre": "Llavero personalizado",
-    "descripcion": "Llavero cortado a láser con diseño personalizable: nombre, inicial, figura o logo. Acabado natural o pintado.",
-    "material": "MDF 3mm",
+    "nombre": "Goku bebe",
+    "descripcion": "Llavero de Goku bebe cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Dorado",
+    "precio": "$3.000",
+    "imagen": "goku-bebe.jpg",
+    "especificaciones": [
+      "Acrílico Dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 5 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Luffy",
+    "descripcion": "Llavero de Luffy cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Dorado",
+    "precio": "$3.000",
+    "imagen": "luffy.jpg",
+    "especificaciones": [
+      "Acrílico Dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Naruto",
+    "descripcion": "Llavero de Naruto cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Dorado",
+    "precio": "$3.000",
+    "imagen": "naruto.jpg",
+    "especificaciones": [
+      "Acrílico Dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Gengar",
+    "descripcion": "Llavero de Gengar cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Dorado",
+    "precio": "$3.000",
+    "imagen": "gengar.jpg",
+    "especificaciones": [
+      "Acrílico Dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Kurumi",
+    "descripcion": "Llavero de Kurumi cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Dorado",
+    "precio": "$3.000",
+    "imagen": "kurumi-1.jpg",
+    "especificaciones": [
+      "Acrílico Dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Kurumi",
+    "descripcion": "Llavero de Kurumi cortado a láser en acrílico plateado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Plateado",
+    "precio": "$3.000",
+    "imagen": "kurumi-2.jpg",
+    "especificaciones": [
+      "Acrílico Plateado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Iron Man",
+    "descripcion": "Llavero de Iron Man cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Dorado",
+    "precio": "$3.000",
+    "imagen": "iron-man.jpg",
+    "especificaciones": [
+      "Acrílico Dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Real Madrid",
+    "descripcion": "Llavero de Real Madrid cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Dorado",
+    "precio": "$3.000",
+    "imagen": "real-madrid.jpg",
+    "especificaciones": [
+      "Acrílico Dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 5 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Winnie Pooh",
+    "descripcion": "Llavero de Winnie Pooh cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Dorado",
+    "precio": "$3.000",
+    "imagen": "winnie-pooh.jpg",
+    "especificaciones": [
+      "Acrílico Dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Ninja",
+    "descripcion": "Llavero de Ninja cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Dorado",
+    "precio": "$3.000",
+    "imagen": "ninja.jpg",
+    "especificaciones": [
+      "Acrílico Dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Rengoku",
+    "descripcion": "Llavero de Rengoku cortado a láser en acrílico dorado con retorno negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado con retorno negro",
+    "precio": "$4.000",
+    "imagen": "rengoku.jpg",
+    "especificaciones": [
+      "Acrílico dorado con retorno negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Escudo Divina Pastora",
+    "descripcion": "Llavero de Escudo Divina Pastora cortado a láser en acrílico dorado con retorno negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado con retorno negro",
+    "precio": "$3.000",
+    "imagen": "escudo-divina-pastora.jpg",
+    "especificaciones": [
+      "Acrílico dorado con retorno negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 8 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Majin Bou",
+    "descripcion": "Llavero de Majin Bou cortado a láser en acrílico rosado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico rosado",
+    "precio": "$3.000",
+    "imagen": "majin-bou.jpg",
+    "especificaciones": [
+      "Acrílico rosado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Bad Bunny",
+    "descripcion": "Llavero de Bad Bunny cortado a láser en acrílico gris. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico gris",
+    "precio": "$4.000",
+    "imagen": "bad-bunny.jpg",
+    "especificaciones": [
+      "Acrílico gris",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "One Piece",
+    "descripcion": "Llavero de One Piece cortado a láser en acrílico negro, blanco, amarillo y rojo. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico negro, blanco, amarillo y rojo",
     "precio": "$5.000",
-    "imagen": "llavero.jpg",
-    "especificaciones": ["MDF 3mm", "Personalizable", "Corte láser", "5x5cm aprox"],
+    "imagen": "one-piece.jpg",
+    "especificaciones": [
+      "Acrílico negro, blanco, amarillo y rojo",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
     "disponible": true
   },
   {
-    "nombre": "Señal decorativa",
-    "descripcion": "Señal para habitación, negocio o regalo. Texto y diseño completamente personalizados con tipografía vectorial.",
-    "material": "MDF 5mm",
-    "precio": "$15.000",
-    "imagen": "senal.jpg",
-    "especificaciones": ["MDF 5mm", "Texto personalizado", "20x10cm aprox"],
+    "nombre": "Escudo de Superman",
+    "descripcion": "Llavero de Escudo de Superman cortado a láser en acrílico azul, amarillo y rojo. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico azul, amarillo y rojo",
+    "precio": "$5.000",
+    "imagen": "escudo-de-superman.jpg",
+    "especificaciones": [
+      "Acrílico azul, amarillo y rojo",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
     "disponible": true
   },
   {
-    "nombre": "Portarretratos láser",
-    "descripcion": "Portarretratos con grabado decorativo en el marco. Diseño elegante cortado con precisión milimétrica.",
-    "material": "MDF 4mm",
-    "precio": "$20.000",
-    "imagen": "portarretratos.jpg",
-    "especificaciones": ["MDF 4mm", "Grabado decorativo", "Foto 10x15cm"],
+    "nombre": "Pantera Negra",
+    "descripcion": "Llavero de Pantera Negra cortado a láser en acrílico dorado y negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado y negro",
+    "precio": "$5.000",
+    "imagen": "pantera-negra.jpg",
+    "especificaciones": [
+      "Acrílico dorado y negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
     "disponible": true
   },
   {
-    "nombre": "Figura decorativa acrílico",
-    "descripcion": "Figura decorativa en acrílico transparente o de colores, cortada con láser. Ideal para regalo o decoración.",
-    "material": "Acrílico 3mm",
-    "precio": "$18.000",
-    "imagen": "figura-acrilico.jpg",
-    "especificaciones": ["Acrílico 3mm", "Varios colores", "Diseño a elección"],
+    "nombre": "Logo de Avengers",
+    "descripcion": "Llavero de Logo de Avengers cortado a láser en acrílico rosado y negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico rosado y negro",
+    "precio": "$5.000",
+    "imagen": "logo-de-avengers.jpg",
+    "especificaciones": [
+      "Acrílico rosado y negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
     "disponible": true
   },
   {
-    "nombre": "Cristo imantado dorado",
-    "descripcion": "Cristo de 10 cm de alto con imán para pegar en la nevera, cortado en acrílico dorado espejo y acrílico negro mate.",
-    "material": "Acrílico dorado espejo y negro mate",
-    "precio": "$10.000",
-    "imagen": "cristo-imantado-dorado.jpg",
-    "especificaciones": ["Acrílico dorado espejo", "Acrílico negro mate", "10 cm de alto", "Imán para nevera"],
+    "nombre": "Jiraiya",
+    "descripcion": "Llavero de Jiraiya cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "jiraiya.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Batman",
+    "descripcion": "Llavero de Batman cortado a láser en acrílico dorado y negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado y negro",
+    "precio": "$4.000",
+    "imagen": "batman.jpg",
+    "especificaciones": [
+      "Acrílico dorado y negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Mario Bros",
+    "descripcion": "Llavero de Mario Bros cortado a láser en acrílico dorado con retorno negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado con retorno negro",
+    "precio": "$3.000",
+    "imagen": "mario-bros.jpg",
+    "especificaciones": [
+      "Acrílico dorado con retorno negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Tazmania",
+    "descripcion": "Llavero de Tazmania cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "tazmania.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Escudo del Cúcuta",
+    "descripcion": "Llavero de Escudo del Cúcuta cortado a láser en acrílico dorado con retorno negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado con retorno negro",
+    "precio": "$4.000",
+    "imagen": "escudo-del-cucuta.jpg",
+    "especificaciones": [
+      "Acrílico dorado con retorno negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 5 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Diablito rockero",
+    "descripcion": "Llavero de Diablito rockero cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "diablito-rockero.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Goku",
+    "descripcion": "Llavero de Goku cortado a láser en acrílico dorado con retorno negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado con retorno negro",
+    "precio": "$3.000",
+    "imagen": "goku-1.jpg",
+    "especificaciones": [
+      "Acrílico dorado con retorno negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Pikachu",
+    "descripcion": "Llavero de Pikachu cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "pikachu.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Escudo de Barcelona",
+    "descripcion": "Llavero de Escudo de Barcelona cortado a láser en acrílico plateado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico plateado",
+    "precio": "$3.000",
+    "imagen": "escudo-de-barcelona.jpg",
+    "especificaciones": [
+      "Acrílico plateado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 6 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Rayo McQueen",
+    "descripcion": "Llavero de Rayo McQueen cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "rayo-mcqueen.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Hello Kitty",
+    "descripcion": "Llavero de Hello Kitty cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "hello-kitty-1.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 5 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Hongo",
+    "descripcion": "Llavero de Hongo cortado a láser en acrílico plateado con retorno negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico plateado con retorno negro",
+    "precio": "$3.000",
+    "imagen": "hongo.jpg",
+    "especificaciones": [
+      "Acrílico plateado con retorno negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Hello Kitty",
+    "descripcion": "Llavero de Hello Kitty cortado a láser en acrílico plateado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico Plateado",
+    "precio": "$3.000",
+    "imagen": "hello-kitty-2.jpg",
+    "especificaciones": [
+      "Acrílico Plateado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Goku",
+    "descripcion": "Llavero de Goku cortado a láser en acrílico dorado y retorno negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado y retorno negro",
+    "precio": "$3.000",
+    "imagen": "goku-2.jpg",
+    "especificaciones": [
+      "Acrílico dorado y retorno negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 5 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "K-pop",
+    "descripcion": "Llavero de K-pop cortado a láser en acrílico dorado y retorno negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado y retorno negro",
+    "precio": "$3.000",
+    "imagen": "k-pop.jpg",
+    "especificaciones": [
+      "Acrílico dorado y retorno negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Capibara con gafas",
+    "descripcion": "Llavero de Capibara con gafas cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "capibara-con-gafas.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Osito cariñosito",
+    "descripcion": "Llavero de Osito cariñosito cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "osito-carinosito.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "PI",
+    "descripcion": "Llavero de PI cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "pi.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Personaje con lentes",
+    "descripcion": "Llavero de Personaje con lentes cortado a láser en acrílico dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado",
+    "precio": "$3.000",
+    "imagen": "personaje-con-lentes.jpg",
+    "especificaciones": [
+      "Acrílico dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Kirby",
+    "descripcion": "Llavero de Kirby cortado a láser en acrílico dorado retorno negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico dorado retorno negro",
+    "precio": "$3.000",
+    "imagen": "kirby.jpg",
+    "especificaciones": [
+      "Acrílico dorado retorno negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 5 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Nike",
+    "descripcion": "Llavero de Nike cortado a láser en acrílico negro y rosado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico negro y rosado",
+    "precio": "$5.000",
+    "imagen": "nike.jpg",
+    "especificaciones": [
+      "Acrílico negro y rosado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Panda",
+    "descripcion": "Llavero de Panda cortado a láser en acrílico negro, blanco y rojo. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico negro, blanco y rojo",
+    "precio": "$6.000",
+    "imagen": "panda.jpg",
+    "especificaciones": [
+      "Acrílico negro, blanco y rojo",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Corazón",
+    "descripcion": "Llavero de Corazón cortado a láser en acrílico rojo, rosado y negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico rojo, rosado y negro",
+    "precio": "$4.000",
+    "imagen": "corazon.jpg",
+    "especificaciones": [
+      "Acrílico rojo, rosado y negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Corazón de Hello Kitty",
+    "descripcion": "Llavero de Corazón de Hello Kitty cortado a láser en acrílico rosado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico rosado",
+    "precio": "$4.000",
+    "imagen": "corazon-de-hello-kitty.jpg",
+    "especificaciones": [
+      "Acrílico rosado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Goku",
+    "descripcion": "Llavero de Goku cortado a láser en acrílico naranja y negro. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico naranja y negro",
+    "precio": "$4.000",
+    "imagen": "goku-3.jpg",
+    "especificaciones": [
+      "Acrílico naranja y negro",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Goku",
+    "descripcion": "Llavero de Goku cortado a láser en acrílico negro y dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico negro y dorado",
+    "precio": "$3.000",
+    "imagen": "goku-4.jpg",
+    "especificaciones": [
+      "Acrílico negro y dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 3 unidades"
+    ],
+    "disponible": true
+  },
+  {
+    "nombre": "Harry Potter",
+    "descripcion": "Llavero de Harry Potter cortado a láser en acrílico negro y dorado. Pieza artesanal con anillo y cadena metálica para llaves.",
+    "material": "Acrílico negro y dorado",
+    "precio": "$4.000",
+    "imagen": "harry-potter.jpg",
+    "especificaciones": [
+      "Acrílico negro y dorado",
+      "Corte láser",
+      "Llavero con argolla",
+      "Stock: 4 unidades"
+    ],
     "disponible": true
   }
 ]
