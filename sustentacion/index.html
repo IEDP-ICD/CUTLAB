@@ -247,6 +247,73 @@
     .fuente-card .muestra.cuerpo { font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--blanco-90); }
     .fuente-card .etiqueta-fuente { font-family: 'DM Mono', monospace; font-size: clamp(.9rem, 1.85vh, 1.05rem); color: var(--blanco-30); letter-spacing: .05em; text-transform: uppercase; }
 
+    /* Informe de costos y gastos */
+    .costos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(1.4rem, 3vw, 2.4rem); width: 100%; }
+    .costo-item {
+      display: flex; justify-content: space-between; align-items: baseline; gap: .7rem;
+      border-bottom: 1px solid var(--acero); padding: clamp(.32rem, .9vh, .55rem) 0;
+    }
+    .costo-item .desc { font-size: clamp(.86rem, 1.8vh, 1.05rem); color: var(--gris-texto); line-height: 1.28; text-align: left; font-weight: 300; }
+    .costo-item .valor { font-size: clamp(.9rem, 1.85vh, 1.08rem); color: var(--blanco); font-weight: 600; white-space: nowrap; flex-shrink: 0; font-family: 'DM Mono', monospace; }
+    .costos-total {
+      display: flex; justify-content: space-between; align-items: center; width: 100%;
+      background: linear-gradient(135deg, var(--laser-suave), rgba(176,38,255,.04));
+      border: 1px solid var(--laser); padding: clamp(.6rem, 1.6vh, 1rem) clamp(1.1rem, 2.2vw, 1.7rem);
+      margin-top: clamp(.35rem, 1vh, .65rem);
+    }
+    .costos-total .etiqueta { font-family: 'DM Mono', monospace; font-size: clamp(.9rem, 1.9vh, 1.1rem); letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--laser-claro); }
+    .costos-total .monto { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 3.2vh, 2.1rem); color: var(--blanco); letter-spacing: .02em; }
+
+    /* Informe de ganancias y pérdidas — facturas con lightbox con zoom */
+    .facturas-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(130px, 30vh, 250px);
+      gap: clamp(.6rem, 1.6vw, 1.1rem); width: 100%;
+    }
+    .factura-card {
+      background: var(--blanco); border: 1px solid var(--acero); cursor: pointer; overflow: hidden;
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      transition: transform .25s, box-shadow .25s, border-color .25s; position: relative;
+    }
+    .factura-card:hover { transform: scale(1.03); box-shadow: var(--laser-glow); border-color: var(--laser); }
+    .factura-card img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .factura-card .lupa {
+      position: absolute; bottom: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%;
+      background: var(--laser); color: var(--negro); display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; opacity: 0; transition: opacity .25s;
+    }
+    .factura-card:hover .lupa { opacity: 1; }
+
+    #factura-lightbox {
+      position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.94);
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+    }
+    #factura-lightbox.activo { display: flex; }
+    .factura-lightbox-scroll {
+      width: 100%; flex: 1 1 auto; overflow: auto; display: flex; align-items: center; justify-content: center; padding: clamp(1rem, 4vh, 2.5rem);
+    }
+    .factura-lightbox-scroll.zoom { align-items: flex-start; justify-content: flex-start; }
+    #factura-lightbox-img {
+      max-width: 90vw; max-height: 80vh; object-fit: contain; cursor: zoom-in;
+      box-shadow: var(--sombra-md); border: 1px solid var(--acero); background: var(--blanco);
+    }
+    #factura-lightbox-img.zoomed { max-width: none; max-height: none; width: 1500px; cursor: zoom-out; }
+    .factura-lightbox-close {
+      position: absolute; top: clamp(1rem, 3vh, 1.6rem); right: clamp(1rem, 3vw, 1.6rem); z-index: 2;
+      width: 42px; height: 42px; border: 1px solid var(--laser); background: var(--grafito); color: var(--laser-claro);
+      font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: var(--laser-glow);
+    }
+    .factura-lightbox-hint {
+      font-family: 'DM Mono', monospace; font-size: clamp(.8rem, 1.7vh, .95rem); color: var(--gris-texto);
+      letter-spacing: .05em; text-align: center; padding: 0 1rem clamp(.8rem, 2vh, 1.3rem);
+    }
+    .factura-lightbox-nav {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+      width: 42px; height: 42px; border: 1px solid var(--laser); background: var(--grafito); color: var(--laser-claro);
+      font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: var(--laser-glow);
+    }
+    #factura-prev { left: clamp(.6rem, 2vw, 1.6rem); }
+    #factura-next { right: clamp(.6rem, 2vw, 1.6rem); }
+
     /* Cierre */
     .final { text-align: center; align-items: center; }
     .final .logo-final { width: clamp(64px, 12vh, 100px); height: clamp(64px, 12vh, 100px); border-radius: 50%; object-fit: cover; margin: 0 auto clamp(.4rem, 1vh, .8rem); box-shadow: var(--laser-glow); }
@@ -316,6 +383,18 @@
       .sector-card .info { padding: .6rem .8rem; }
       .sector-card h3 { font-size: clamp(.95rem, 2.2vh, 1.15rem); }
       .sector-card p { font-size: clamp(.78rem, 1.8vh, .92rem); line-height: 1.32; }
+
+      .costos-grid { grid-template-columns: 1fr; gap: 0; }
+      .costo-item .desc { font-size: .8rem; }
+      .costo-item .valor { font-size: .82rem; }
+      .costos-total { padding: .5rem .8rem; }
+      .costos-total .etiqueta { font-size: .8rem; }
+      .costos-total .monto { font-size: 1.35rem; }
+      .facturas-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(90px, 17vh, 150px); gap: .5rem; }
+      .lead { font-size: clamp(.85rem, 2vh, 1rem); line-height: 1.34; }
+      #factura-lightbox-img.zoomed { width: 900px; }
+      .factura-lightbox-nav { width: 36px; height: 36px; font-size: 1rem; }
+      .factura-lightbox-close { width: 36px; height: 36px; }
     }
 
     @media (max-height: 700px) {
@@ -358,6 +437,12 @@
       .equipo-pills { gap: 6px; }
       .equipo-pills span { font-size: .78rem; padding: 5px 12px; }
       .portada-footer { font-size: .7rem; }
+      .costo-item { padding: .16rem 0; }
+      .costo-item .desc { font-size: .72rem; }
+      .costo-item .valor { font-size: .74rem; }
+      .costos-total { padding: .4rem .7rem; }
+      .costos-total .monto { font-size: 1.15rem; }
+      .facturas-grid { gap: .5rem; }
     }
   </style>
 </head>
@@ -686,8 +771,71 @@
       </div>
     </section>
 
-    <!-- ═══ 17. CIERRE ═══ -->
+    <!-- ═══ 17. INFORME DE COSTOS ═══ -->
     <section class="slide" data-bg="17">
+      <div class="slide-inner">
+        <p class="seccion-num">16 — Presupuesto del proyecto</p>
+        <h2>Informe de <span>costos</span></h2>
+        <div class="costos-grid">
+          <div class="costo-item"><span class="desc">Cámara Sony ZV-E10</span><span class="valor">$3.375.962</span></div>
+          <div class="costo-item"><span class="desc">Tarjeta SD ADATA 128GB (x2)</span><span class="valor">$211.098</span></div>
+          <div class="costo-item"><span class="desc">Trípode con cabezal fluido</span><span class="valor">$1.277.837</span></div>
+          <div class="costo-item"><span class="desc">Batería recargable de la cámara</span><span class="valor">$365.811</span></div>
+          <div class="costo-item"><span class="desc">Cargador de batería para cámara</span><span class="valor">$472.469</span></div>
+          <div class="costo-item"><span class="desc">Grabadora Tascam DR-05XP</span><span class="valor">$1.072.498</span></div>
+          <div class="costo-item"><span class="desc">Memoria para grabadora de audio</span><span class="valor">$76.923</span></div>
+          <div class="costo-item"><span class="desc">Micrófonos de solapa inalámbricos</span><span class="valor">$1.430.473</span></div>
+          <div class="costo-item"><span class="desc">Audífonos Behringer BH470</span><span class="valor">$327.012</span></div>
+          <div class="costo-item"><span class="desc">Cargador de pilas</span><span class="valor">$69.606</span></div>
+          <div class="costo-item"><span class="desc">Set de pilas recargables AA/AAA</span><span class="valor">$152.541</span></div>
+          <div class="costo-item"><span class="desc">Micrófono Boom</span><span class="valor">$1.296.443</span></div>
+          <div class="costo-item"><span class="desc">Portátil HP + licencia</span><span class="valor">$2.615.330</span></div>
+          <div class="costo-item"><span class="desc">Disco duro externo 2TB</span><span class="valor">$393.852</span></div>
+        </div>
+        <div class="costos-total">
+          <span class="etiqueta">Total invertido</span>
+          <span class="monto">$13.137.855</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 18. INFORME DE GANANCIAS Y PÉRDIDAS ═══ -->
+    <section class="slide" data-bg="18">
+      <div class="slide-inner">
+        <p class="seccion-num">17 — Balance del emprendimiento</p>
+        <h2>Informe de <span>ganancias y pérdidas</span></h2>
+        <p class="lead" style="margin-bottom:.2rem;">Estas son algunas de las muchas facturas de venta emitidas por CUTLAB. Haz clic en cualquiera para verla en pantalla completa y ampliarla con zoom.</p>
+        <div class="facturas-grid">
+          <div class="factura-card" onclick="abrirFactura(0)">
+            <img src="img/factura-01.jpg" alt="Factura de venta N.º 06 — CUTLAB" loading="lazy" />
+            <span class="lupa">🔍</span>
+          </div>
+          <div class="factura-card" onclick="abrirFactura(1)">
+            <img src="img/factura-02.jpg" alt="Factura de venta N.º 001 — CUTLAB" loading="lazy" />
+            <span class="lupa">🔍</span>
+          </div>
+          <div class="factura-card" onclick="abrirFactura(2)">
+            <img src="img/factura-03.jpg" alt="Factura de venta N.º 001 — CUTLAB" loading="lazy" />
+            <span class="lupa">🔍</span>
+          </div>
+          <div class="factura-card" onclick="abrirFactura(3)">
+            <img src="img/factura-04.jpg" alt="Factura de venta N.º 003 — CUTLAB" loading="lazy" />
+            <span class="lupa">🔍</span>
+          </div>
+          <div class="factura-card" onclick="abrirFactura(4)">
+            <img src="img/factura-05.jpg" alt="Factura de venta N.º 002 — CUTLAB" loading="lazy" />
+            <span class="lupa">🔍</span>
+          </div>
+          <div class="factura-card" onclick="abrirFactura(5)">
+            <img src="img/factura-06.jpg" alt="Factura de venta N.º 10 — CUTLAB" loading="lazy" />
+            <span class="lupa">🔍</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 19. CIERRE ═══ -->
+    <section class="slide" data-bg="19">
       <div class="slide-inner final">
         <img class="logo-final" src="../img/logo.png" alt="CUTLAB" />
         <p class="label">Gracias por su atención</p>
@@ -699,12 +847,23 @@
 
   </div>
 
+  <!-- ═══ Lightbox de facturas — pantalla completa con zoom ═══ -->
+  <div id="factura-lightbox">
+    <button class="factura-lightbox-close" onclick="cerrarFactura()" aria-label="Cerrar">✕</button>
+    <button class="factura-lightbox-nav" id="factura-prev" onclick="navegarFactura(-1)" aria-label="Factura anterior">‹</button>
+    <button class="factura-lightbox-nav" id="factura-next" onclick="navegarFactura(1)" aria-label="Factura siguiente">›</button>
+    <div class="factura-lightbox-scroll" id="factura-scroll">
+      <img id="factura-lightbox-img" src="" alt="" onclick="toggleZoomFactura()" />
+    </div>
+    <p class="factura-lightbox-hint" id="factura-hint">Factura 1 de 6 · algunas de muchas — toca la imagen para hacer zoom</p>
+  </div>
+
   <!-- ═══ Controles de navegación ═══ -->
   <div class="nav-controles">
     <button class="nav-btn" id="btnPrev" aria-label="Diapositiva anterior">‹</button>
     <div class="nav-puntos" id="navPuntos"></div>
     <button class="nav-btn" id="btnNext" aria-label="Siguiente diapositiva">›</button>
-    <span class="nav-contador" id="navContador">1 / 17</span>
+    <span class="nav-contador" id="navContador">1 / 19</span>
   </div>
 
   <script>
@@ -753,6 +912,12 @@
     document.getElementById('btnNext').addEventListener('click', () => irA(actual + 1));
 
     document.addEventListener('keydown', (e) => {
+      if (facturaLightbox.classList.contains('activo')) {
+        if (e.key === 'Escape') cerrarFactura();
+        if (e.key === 'ArrowRight') navegarFactura(1);
+        if (e.key === 'ArrowLeft') navegarFactura(-1);
+        return;
+      }
       if (e.key === 'ArrowRight' || e.key === ' ') irA(actual + 1);
       if (e.key === 'ArrowLeft') irA(actual - 1);
     });
@@ -767,12 +932,60 @@
     }, { passive: true });
 
     deck.addEventListener('touchend', (e) => {
+      if (facturaLightbox.classList.contains('activo')) return;
       const dx = e.changedTouches[0].clientX - touchStartX;
       const dy = e.changedTouches[0].clientY - touchStartY;
       if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) {
         if (dx < 0) irA(actual + 1); else irA(actual - 1);
       }
     }, { passive: true });
+
+    /* ═══ Lightbox de facturas — pantalla completa con zoom ═══
+       Son 6 facturas de muestra ("algunas de muchas"). Clic en la
+       imagen alterna entre ajustada a pantalla y ampliada (zoom),
+       con scroll para recorrerla en el estado ampliado. */
+    const facturas = [
+      'img/factura-01.jpg', 'img/factura-02.jpg', 'img/factura-03.jpg',
+      'img/factura-04.jpg', 'img/factura-05.jpg', 'img/factura-06.jpg'
+    ];
+    let facturaActual = 0;
+    const facturaLightbox = document.getElementById('factura-lightbox');
+    const facturaImg = document.getElementById('factura-lightbox-img');
+    const facturaScroll = document.getElementById('factura-scroll');
+    const facturaHint = document.getElementById('factura-hint');
+
+    function abrirFactura(i) {
+      facturaActual = i;
+      mostrarFactura();
+      facturaLightbox.classList.add('activo');
+    }
+
+    function mostrarFactura() {
+      facturaImg.classList.remove('zoomed');
+      facturaScroll.classList.remove('zoom');
+      facturaImg.src = facturas[facturaActual];
+      facturaImg.alt = `Factura de venta CUTLAB ${facturaActual + 1} de ${facturas.length}`;
+      facturaHint.textContent = `Factura ${facturaActual + 1} de ${facturas.length} · algunas de muchas — toca la imagen para hacer zoom`;
+    }
+
+    function navegarFactura(dir) {
+      facturaActual = (facturaActual + dir + facturas.length) % facturas.length;
+      mostrarFactura();
+    }
+
+    function toggleZoomFactura() {
+      const zoom = facturaImg.classList.toggle('zoomed');
+      facturaScroll.classList.toggle('zoom', zoom);
+      if (zoom) facturaScroll.scrollTo(0, 0);
+    }
+
+    function cerrarFactura() {
+      facturaLightbox.classList.remove('activo');
+    }
+
+    facturaLightbox.addEventListener('click', (e) => {
+      if (e.target === facturaLightbox || e.target === facturaScroll) cerrarFactura();
+    });
   </script>
 
 </body>
