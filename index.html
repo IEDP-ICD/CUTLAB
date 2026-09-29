@@ -761,8 +761,8 @@
        ═══════════════════════════════════════════════════════════ */
     #catalogo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
     }
 
     .producto-card {
@@ -805,17 +805,21 @@
     /* Badge de material sobre la imagen */
     .producto-material-badge {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 8px;
+      left: 8px;
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
+      font-size: 0.55rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       background: rgba(8,10,12,0.85);
       border: 1px solid var(--laser);
       color: var(--laser);
-      padding: 4px 10px;
+      padding: 3px 7px;
       border-radius: var(--radio-sm);
+      max-width: calc(100% - 16px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     /* Placeholder si no hay imagen */
@@ -831,41 +835,42 @@
 
     /* Info del producto */
     .producto-info {
-      padding: 1.5rem;
+      padding: 0.9rem;
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 5px;
     }
 
     .producto-nombre {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.05rem;
       color: var(--blanco);
-      letter-spacing: 0.05em;
-      line-height: 1.1;
+      letter-spacing: 0.03em;
+      line-height: 1.15;
     }
 
     .producto-desc {
-      font-size: 0.83rem;
+      font-size: 0.72rem;
       color: var(--gris-texto);
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.45;
       flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     /* Especificaciones del producto */
     .producto-specs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
+      display: none;
     }
 
     .producto-spec-tag {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      padding: 3px 10px;
+      font-size: 0.6rem;
+      padding: 2px 8px;
       border-radius: var(--radio-sm);
       border: 1px solid var(--acero);
       color: var(--gris-texto);
@@ -877,15 +882,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 1rem;
+      padding-top: 0.6rem;
       border-top: 1px solid var(--acero);
-      margin-top: 8px;
+      margin-top: 4px;
     }
 
     /* Precio del producto */
     .producto-precio {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
+      font-size: 1.3rem;
       color: var(--laser);
       letter-spacing: 0.05em;
       text-shadow: 0 0 20px rgba(176,38,255,0.3);
@@ -894,13 +899,14 @@
     /* Badge de disponibilidad */
     .producto-badge {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      padding: 4px 12px;
+      font-size: 0.55rem;
+      padding: 3px 9px;
       border-radius: var(--radio-sm);
       border: 1px solid var(--laser);
       color: var(--laser);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     /* ═══════════════════════════════════════════════════════════
@@ -1321,6 +1327,10 @@
       .seccion { padding: 3.5rem 0; }
       .mision-vision-grid { grid-template-columns: 1fr; }
       #tutoriales-grid { grid-template-columns: 1fr; }
+      #catalogo-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+      .producto-info { padding: 0.7rem; gap: 4px; }
+      .producto-nombre { font-size: 0.9rem; }
+      .producto-precio { font-size: 1.1rem; }
       /* En móvil restaurar cursor normal */
       * { cursor: auto; }
       .cursor-punto, .cursor-anillo { display: none; }
