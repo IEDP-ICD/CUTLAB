@@ -678,11 +678,21 @@
       color: var(--laser);
     }
 
-    /* Grid de la galería — columnas de distintas alturas (masonry visual) */
+    /* Grid de la galería — filas fijas de 5 fotos, menos columnas en pantallas angostas */
     #galeria-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 12px;
+    }
+
+    @media (max-width: 1100px) {
+      #galeria-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 860px) {
+      #galeria-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      #galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
     }
 
     .foto-card {
