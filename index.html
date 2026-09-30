@@ -1573,13 +1573,20 @@
          {
            "titulo": "Construcción de stand de llaveros",
            "tiktok_url": "https://vt.tiktok.com/CODIGO_DEL_VIDEO/"
+         },
+         {
+           "titulo": "Llaveros personalizados",
+           "tiktok_url": "https://vt.tiktok.com/CODIGO_DEL_VIDEO/",
+           "miniatura": "llaveros-personalizados.jpg"
          }
        ]
-       Al cargar la página, el código consulta la API pública oEmbed
-       de TikTok para traer la miniatura real del video. Si TikTok no
-       responde (sin internet, video privado o eliminado), la ficha
-       muestra un ícono en su lugar — igual se puede tocar para ir
-       al video.
+       "miniatura" es opcional: el nombre de una imagen dentro de
+       tutoriales/. Si se da, esa imagen se muestra siempre como
+       portada y nunca se reemplaza. Si no se da, al cargar la página
+       el código consulta la API pública oEmbed de TikTok para traer
+       la miniatura real del video. Si TikTok no responde (sin
+       internet, video privado o eliminado), la ficha muestra un
+       ícono en su lugar — igual se puede tocar para ir al video.
        ═══════════════════════════════════════════════════════════ -->
   <section class="seccion" id="tutoriales">
     <div class="contenedor">
@@ -1911,10 +1918,14 @@
           return;
         }
 
-        grid.innerHTML = tuts.map((t, i) => `
+        grid.innerHTML = tuts.map((t, i) => {
+          const thumbHTML = t.miniatura
+            ? `<img id="tutorial-thumb-${i}" src="tutoriales/${escHtml(t.miniatura)}" alt="${escHtml(t.titulo)}" loading="lazy" />`
+            : `<div class="tutorial-video-placeholder" id="tutorial-thumb-${i}">🎵</div>`;
+          return `
           <div class="tutorial-card">
             <a class="tutorial-video" href="${escHtml(t.tiktok_url)}" target="_blank" rel="noopener noreferrer" aria-label="Ver en TikTok: ${escHtml(t.titulo)}">
-              <div class="tutorial-video-placeholder" id="tutorial-thumb-${i}">🎵</div>
+              ${thumbHTML}
               <div class="tutorial-play-badge"><span class="tutorial-play-icon">▶</span></div>
             </a>
             <div class="tutorial-info">
@@ -1922,11 +1933,14 @@
               <p class="tutorial-desc" id="tutorial-desc-${i}"></p>
             </div>
           </div>
-        `).join('');
+        `;
+        }).join('');
 
-        /* Trae la miniatura real (y la descripción) de cada video desde TikTok */
+        /* Trae la descripción real de cada video desde TikTok. Si ya hay
+           una miniatura propia en el JSON (t.miniatura), se conserva esa
+           imagen y solo se actualiza el texto de la descripción. */
         tuts.forEach((t, i) => {
-          if (t.tiktok_url) cargarDatosTikTok(t.tiktok_url, i);
+          if (t.tiktok_url) cargarDatosTikTok(t.tiktok_url, i, !!t.miniatura);
         });
 
       } catch {
@@ -1943,20 +1957,22 @@
     ícono — igual funciona el enlace para verlo en TikTok.
     ══════════════════════════════════════════════════════════════
     */
-    async function cargarDatosTikTok(tiktokUrl, i) {
+    async function cargarDatosTikTok(tiktokUrl, i, tieneMiniaturaPropia) {
       try {
         const resp = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(tiktokUrl)}`);
         if (!resp.ok) throw new Error('oEmbed de TikTok no disponible');
         const data = await resp.json();
 
-        const thumbEl = document.getElementById(`tutorial-thumb-${i}`);
-        if (thumbEl && data.thumbnail_url) {
-          const img = document.createElement('img');
-          img.id = `tutorial-thumb-${i}`;
-          img.src = data.thumbnail_url;
-          img.alt = data.title || 'Video de TikTok';
-          img.loading = 'lazy';
-          thumbEl.replaceWith(img);
+        if (!tieneMiniaturaPropia) {
+          const thumbEl = document.getElementById(`tutorial-thumb-${i}`);
+          if (thumbEl && data.thumbnail_url) {
+            const img = document.createElement('img');
+            img.id = `tutorial-thumb-${i}`;
+            img.src = data.thumbnail_url;
+            img.alt = data.title || 'Video de TikTok';
+            img.loading = 'lazy';
+            thumbEl.replaceWith(img);
+          }
         }
 
         const descEl = document.getElementById(`tutorial-desc-${i}`);

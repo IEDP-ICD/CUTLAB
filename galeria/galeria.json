@@ -1,38 +1,337 @@
 [
-  { "nombre": "Placa conmemorativa grabada", "categoria": "Producto", "archivo": "foto-01.jpg" },
-  { "nombre": "Operando la cortadora láser", "categoria": "Proceso", "archivo": "foto-02.jpg" },
-  { "nombre": "Cuadro de Goku en acrílico", "categoria": "Producto", "archivo": "foto-03.jpg" },
-  { "nombre": "Grabado personalizado en madera", "categoria": "Producto", "archivo": "foto-04.jpg" },
-  { "nombre": "Escudo institucional grabado en tronco", "categoria": "Producto", "archivo": "foto-05.jpg" },
-  { "nombre": "Instalando la pancarta del aula de informática", "categoria": "Evento", "archivo": "foto-06.jpg" },
-  { "nombre": "Escudo dorado La Divina Pastora", "categoria": "Producto", "archivo": "foto-07.jpg" },
-  { "nombre": "Montando la exhibición del aula de informática", "categoria": "Evento", "archivo": "foto-08.jpg" },
-  { "nombre": "Lámpara decorativa institucional en madera", "categoria": "Producto", "archivo": "foto-09.jpg" },
-  { "nombre": "Placa doble grabada con siluetas de estudiantes", "categoria": "Producto", "archivo": "foto-10.jpg" },
-  { "nombre": "Llavero circular dorado", "categoria": "Producto", "archivo": "foto-11.jpg" },
-  { "nombre": "Cortando MDF con la láser", "categoria": "Proceso", "archivo": "foto-12.jpg" },
-  { "nombre": "Cortadora láser en funcionamiento", "categoria": "Proceso", "archivo": "foto-13.jpg" },
-  { "nombre": "Llavero de zapatilla grabado", "categoria": "Producto", "archivo": "foto-14.jpg" },
-  { "nombre": "Detalle de la cortadora láser", "categoria": "Proceso", "archivo": "foto-15.jpg" },
-  { "nombre": "Figura de Goku en madera", "categoria": "Producto", "archivo": "foto-16.jpg" },
-  { "nombre": "Cuadro de Goku en acrílico (otra vista)", "categoria": "Producto", "archivo": "foto-17.jpg" },
-  { "nombre": "Figura de unicornio impresa en 3D", "categoria": "Producto", "archivo": "foto-18.jpg" },
-  { "nombre": "Placa grabada con diseño anime", "categoria": "Producto", "archivo": "foto-19.jpg" },
-  { "nombre": "Pesebre navideño en madera", "categoria": "Producto", "archivo": "foto-20.jpg" },
-  { "nombre": "Cuadro de personaje anime en madera", "categoria": "Producto", "archivo": "foto-21.jpg" },
-  { "nombre": "Placa grabada con boceto anime", "categoria": "Producto", "archivo": "foto-22.jpg" },
-  { "nombre": "Soporte dorado Feliz Día del Maestro", "categoria": "Producto", "archivo": "foto-23.jpg" },
-  { "nombre": "Llaveros de Superman en acrílico", "categoria": "Producto", "archivo": "foto-24.jpg" },
-  { "nombre": "Figura impresa en 3D", "categoria": "Producto", "archivo": "foto-25.jpg" },
-  { "nombre": "Figura en madera con marco dorado", "categoria": "Producto", "archivo": "foto-26.jpg" },
-  { "nombre": "Figura de personaje en acrílico dorado", "categoria": "Producto", "archivo": "foto-27.jpg" },
-  { "nombre": "Llavero de Naruto en madera", "categoria": "Producto", "archivo": "foto-28.jpg" },
-  { "nombre": "Cruz grabada en acrílico dorado", "categoria": "Producto", "archivo": "foto-29.jpg" },
-  { "nombre": "Variedad de llaveros y dijes", "categoria": "Producto", "archivo": "foto-30.jpg" },
-  { "nombre": "Figura de Gengar en madera", "categoria": "Producto", "archivo": "foto-31.jpg" },
-  { "nombre": "Estudiantes en la feria emprendedora", "categoria": "Evento", "archivo": "foto-32.jpg" },
-  { "nombre": "Exhibición de llaveros en el punto de venta", "categoria": "Evento", "archivo": "foto-33.jpg" },
-  { "nombre": "Preparando el stand en la feria", "categoria": "Evento", "archivo": "foto-34.jpg" },
-  { "nombre": "Presentación en Museo en el Tiempo", "categoria": "Evento", "archivo": "foto-35.jpg" },
-  { "nombre": "Equipo CUTLAB en la feria de Cúcuta", "categoria": "Evento", "archivo": "foto-36.jpg" }
+  {
+    "nombre": "Placa conmemorativa grabada",
+    "categoria": "Producto",
+    "archivo": "foto-01.jpg"
+  },
+  {
+    "nombre": "Operando la cortadora láser",
+    "categoria": "Proceso",
+    "archivo": "foto-02.jpg"
+  },
+  {
+    "nombre": "Cuadro de Goku en acrílico",
+    "categoria": "Producto",
+    "archivo": "foto-03.jpg"
+  },
+  {
+    "nombre": "Grabado personalizado en madera",
+    "categoria": "Producto",
+    "archivo": "foto-04.jpg"
+  },
+  {
+    "nombre": "Escudo institucional grabado en tronco",
+    "categoria": "Producto",
+    "archivo": "foto-05.jpg"
+  },
+  {
+    "nombre": "Instalando la pancarta del aula de informática",
+    "categoria": "Evento",
+    "archivo": "foto-06.jpg"
+  },
+  {
+    "nombre": "Escudo dorado La Divina Pastora",
+    "categoria": "Producto",
+    "archivo": "foto-07.jpg"
+  },
+  {
+    "nombre": "Montando la exhibición del aula de informática",
+    "categoria": "Evento",
+    "archivo": "foto-08.jpg"
+  },
+  {
+    "nombre": "Lámpara decorativa institucional en madera",
+    "categoria": "Producto",
+    "archivo": "foto-09.jpg"
+  },
+  {
+    "nombre": "Placa doble grabada con siluetas de estudiantes",
+    "categoria": "Producto",
+    "archivo": "foto-10.jpg"
+  },
+  {
+    "nombre": "Llavero circular dorado",
+    "categoria": "Producto",
+    "archivo": "foto-11.jpg"
+  },
+  {
+    "nombre": "Cortando MDF con la láser",
+    "categoria": "Proceso",
+    "archivo": "foto-12.jpg"
+  },
+  {
+    "nombre": "Cortadora láser en funcionamiento",
+    "categoria": "Proceso",
+    "archivo": "foto-13.jpg"
+  },
+  {
+    "nombre": "Llavero de zapatilla grabado",
+    "categoria": "Producto",
+    "archivo": "foto-14.jpg"
+  },
+  {
+    "nombre": "Detalle de la cortadora láser",
+    "categoria": "Proceso",
+    "archivo": "foto-15.jpg"
+  },
+  {
+    "nombre": "Figura de Goku en madera",
+    "categoria": "Producto",
+    "archivo": "foto-16.jpg"
+  },
+  {
+    "nombre": "Cuadro de Goku en acrílico (otra vista)",
+    "categoria": "Producto",
+    "archivo": "foto-17.jpg"
+  },
+  {
+    "nombre": "Figura de unicornio impresa en 3D",
+    "categoria": "Producto",
+    "archivo": "foto-18.jpg"
+  },
+  {
+    "nombre": "Placa grabada con diseño anime",
+    "categoria": "Producto",
+    "archivo": "foto-19.jpg"
+  },
+  {
+    "nombre": "Pesebre navideño en madera",
+    "categoria": "Producto",
+    "archivo": "foto-20.jpg"
+  },
+  {
+    "nombre": "Cuadro de personaje anime en madera",
+    "categoria": "Producto",
+    "archivo": "foto-21.jpg"
+  },
+  {
+    "nombre": "Placa grabada con boceto anime",
+    "categoria": "Producto",
+    "archivo": "foto-22.jpg"
+  },
+  {
+    "nombre": "Soporte dorado Feliz Día del Maestro",
+    "categoria": "Producto",
+    "archivo": "foto-23.jpg"
+  },
+  {
+    "nombre": "Llaveros de Superman en acrílico",
+    "categoria": "Producto",
+    "archivo": "foto-24.jpg"
+  },
+  {
+    "nombre": "Figura impresa en 3D",
+    "categoria": "Producto",
+    "archivo": "foto-25.jpg"
+  },
+  {
+    "nombre": "Figura en madera con marco dorado",
+    "categoria": "Producto",
+    "archivo": "foto-26.jpg"
+  },
+  {
+    "nombre": "Figura de personaje en acrílico dorado",
+    "categoria": "Producto",
+    "archivo": "foto-27.jpg"
+  },
+  {
+    "nombre": "Llavero de Naruto en madera",
+    "categoria": "Producto",
+    "archivo": "foto-28.jpg"
+  },
+  {
+    "nombre": "Cruz grabada en acrílico dorado",
+    "categoria": "Producto",
+    "archivo": "foto-29.jpg"
+  },
+  {
+    "nombre": "Variedad de llaveros y dijes",
+    "categoria": "Producto",
+    "archivo": "foto-30.jpg"
+  },
+  {
+    "nombre": "Figura de Gengar en madera",
+    "categoria": "Producto",
+    "archivo": "foto-31.jpg"
+  },
+  {
+    "nombre": "Estudiantes en la feria emprendedora",
+    "categoria": "Evento",
+    "archivo": "foto-32.jpg"
+  },
+  {
+    "nombre": "Exhibición de llaveros en el punto de venta",
+    "categoria": "Evento",
+    "archivo": "foto-33.jpg"
+  },
+  {
+    "nombre": "Preparando el stand en la feria",
+    "categoria": "Evento",
+    "archivo": "foto-34.jpg"
+  },
+  {
+    "nombre": "Presentación en Museo en el Tiempo",
+    "categoria": "Evento",
+    "archivo": "foto-35.jpg"
+  },
+  {
+    "nombre": "Equipo CUTLAB en la feria de Cúcuta",
+    "categoria": "Evento",
+    "archivo": "foto-36.jpg"
+  },
+  {
+    "nombre": "Placa de graduación \"2025\"",
+    "categoria": "Producto",
+    "archivo": "foto-37.jpg"
+  },
+  {
+    "nombre": "Detrás de cámaras: fotografiando la maqueta de carro",
+    "categoria": "Proceso",
+    "archivo": "foto-38.jpg"
+  },
+  {
+    "nombre": "Detrás de cámaras: ajustando la toma en el cubo de luz",
+    "categoria": "Proceso",
+    "archivo": "foto-39.jpg"
+  },
+  {
+    "nombre": "Figura de personaje animado en marco dorado",
+    "categoria": "Producto",
+    "archivo": "foto-40.jpg"
+  },
+  {
+    "nombre": "Llavero de carro en acrílico",
+    "categoria": "Producto",
+    "archivo": "foto-41.jpg"
+  },
+  {
+    "nombre": "Detalle de acabado en vinilo adhesivo",
+    "categoria": "Proceso",
+    "archivo": "foto-42.jpg"
+  },
+  {
+    "nombre": "Maqueta de carro armable en MDF",
+    "categoria": "Producto",
+    "archivo": "foto-43.jpg"
+  },
+  {
+    "nombre": "Cuadro acrílico con silueta de personaje animado",
+    "categoria": "Producto",
+    "archivo": "foto-44.jpg"
+  },
+  {
+    "nombre": "Figura de unicornio impresa en 3D",
+    "categoria": "Producto",
+    "archivo": "foto-45.jpg"
+  },
+  {
+    "nombre": "Placa triple grabada con personajes de fantasía",
+    "categoria": "Producto",
+    "archivo": "foto-46.jpg"
+  },
+  {
+    "nombre": "Pesebre navideño en acrílico dorado",
+    "categoria": "Producto",
+    "archivo": "foto-47.jpg"
+  },
+  {
+    "nombre": "Figura de personaje animado en marco de madera",
+    "categoria": "Producto",
+    "archivo": "foto-48.jpg"
+  },
+  {
+    "nombre": "Placa grabada con boceto de personajes animados",
+    "categoria": "Producto",
+    "archivo": "foto-49.jpg"
+  },
+  {
+    "nombre": "Soporte dorado \"Feliz Día del Maestro\"",
+    "categoria": "Producto",
+    "archivo": "foto-50.jpg"
+  },
+  {
+    "nombre": "Llaveros acrílicos con logo de superhéroe",
+    "categoria": "Producto",
+    "archivo": "foto-51.jpg"
+  },
+  {
+    "nombre": "Figura azul impresa en 3D",
+    "categoria": "Producto",
+    "archivo": "foto-52.jpg"
+  },
+  {
+    "nombre": "Figura de personaje animado en marco de madera",
+    "categoria": "Producto",
+    "archivo": "foto-53.jpg"
+  },
+  {
+    "nombre": "Llavero de personaje animado",
+    "categoria": "Producto",
+    "archivo": "foto-54.jpg"
+  },
+  {
+    "nombre": "Figura dorada de personaje animado",
+    "categoria": "Producto",
+    "archivo": "foto-55.jpg"
+  },
+  {
+    "nombre": "Figura dorada con silueta de personaje animado",
+    "categoria": "Producto",
+    "archivo": "foto-56.jpg"
+  },
+  {
+    "nombre": "Cruz grabada en acrílico dorado",
+    "categoria": "Producto",
+    "archivo": "foto-57.jpg"
+  },
+  {
+    "nombre": "Variedad de llaveros y parches acrílicos",
+    "categoria": "Producto",
+    "archivo": "foto-58.jpg"
+  },
+  {
+    "nombre": "Llavero de personaje animado en madera",
+    "categoria": "Producto",
+    "archivo": "foto-59.jpg"
+  },
+  {
+    "nombre": "Exhibición de llaveros en el punto de venta",
+    "categoria": "Evento",
+    "archivo": "foto-60.jpg"
+  },
+  {
+    "nombre": "Estudiantes en la feria emprendedora",
+    "categoria": "Evento",
+    "archivo": "foto-61.jpg"
+  },
+  {
+    "nombre": "Equipo CUTLAB en la exhibición Museo en el Tiempo",
+    "categoria": "Evento",
+    "archivo": "foto-62.jpg"
+  },
+  {
+    "nombre": "Letrero luminoso personalizado para habitación",
+    "categoria": "Producto",
+    "archivo": "foto-63.jpg"
+  },
+  {
+    "nombre": "Cabecera personalizada con luz LED",
+    "categoria": "Producto",
+    "archivo": "foto-64.jpg"
+  },
+  {
+    "nombre": "Funda de celular grabada",
+    "categoria": "Producto",
+    "archivo": "foto-65.jpg"
+  },
+  {
+    "nombre": "Detalle del letrero luminoso con castillo",
+    "categoria": "Producto",
+    "archivo": "foto-66.jpg"
+  },
+  {
+    "nombre": "Letrero con nombre grabado e iluminado",
+    "categoria": "Producto",
+    "archivo": "foto-67.jpg"
+  }
 ]
