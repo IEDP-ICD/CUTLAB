@@ -105,19 +105,19 @@
     .slide h2 span { color: var(--laser); }
 
     .lead {
-      font-size: clamp(1.4rem, 3.2vh, 1.8rem); color: var(--gris-texto); line-height: 1.48; max-width: 900px; font-weight: 300;
+      font-size: clamp(1.5rem, 3.6vh, 2rem); color: var(--gris-texto); line-height: 1.48; max-width: 900px; font-weight: 300;
     }
 
     .tarjeta {
       background: var(--grafito); border: 1px solid var(--acero);
-      padding: clamp(1.1rem, 2.8vh, 1.9rem) clamp(1.3rem, 2.8vw, 2.1rem); position: relative; overflow: hidden;
+      padding: clamp(.9rem, 2.3vh, 1.6rem) clamp(1.3rem, 2.8vw, 2.1rem); position: relative; overflow: hidden;
     }
     .tarjeta h3 {
       font-family: 'Bebas Neue', sans-serif; font-weight: 400; letter-spacing: .03em;
       font-size: clamp(1.75rem, 4vh, 2.3rem); color: var(--laser-claro);
       margin-bottom: clamp(.35rem, 1vh, .6rem); display: flex; align-items: center; gap: 8px;
     }
-    .tarjeta p { font-size: clamp(1.3rem, 2.8vh, 1.6rem); color: var(--gris-texto); line-height: 1.46; font-weight: 300; }
+    .tarjeta p { font-size: clamp(1.35rem, 2.9vh, 1.65rem); color: var(--gris-texto); line-height: 1.46; font-weight: 300; }
 
     /* ═══ Slide 1: portada ═══ */
     .portada { text-align: center; align-items: center; }
@@ -162,14 +162,14 @@
     }
     .miembro-foto { width: 100%; height: 100%; object-fit: contain; display: block; }
     .miembro-info { flex: 1 1 auto; min-width: 0; position: relative; z-index: 1; }
-    .miembro-rol { font-family: 'DM Mono', monospace; font-size: clamp(.95rem, 2vh, 1.1rem); letter-spacing: .09em; text-transform: uppercase; color: var(--laser-claro); margin-bottom: 5px; }
+    .miembro-rol { font-family: 'DM Mono', monospace; font-size: clamp(1.05rem, 2.2vh, 1.22rem); letter-spacing: .09em; text-transform: uppercase; color: var(--laser-claro); margin-bottom: 5px; }
     .miembro-nombre { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.6rem, 3.4vh, 2.1rem); letter-spacing: .02em; color: var(--blanco); margin-bottom: clamp(.3rem, .8vh, .5rem); }
-    .miembro-desc { font-size: clamp(1.02rem, 2.1vh, 1.2rem); color: var(--gris-texto); line-height: 1.38; font-weight: 300; }
+    .miembro-desc { font-size: clamp(1.15rem, 2.4vh, 1.32rem); color: var(--gris-texto); line-height: 1.38; font-weight: 300; }
 
     /* Dos columnas */
     .dos-col { display: grid; grid-template-columns: 1fr .95fr; gap: clamp(1.2rem, 3.4vw, 2.8rem); align-items: center; }
     .dos-col.invertido { grid-template-columns: .95fr 1fr; }
-    .dos-col img { width: 100%; height: clamp(280px, 66vh, 680px); object-fit: cover; border: 1px solid var(--acero); box-shadow: var(--sombra-md); }
+    .dos-col img { width: 100%; height: clamp(280px, 66vh, 680px); object-fit: contain; background: var(--grafito); border: 1px solid var(--acero); box-shadow: var(--sombra-md); }
     .dos-col .col-texto { display: flex; flex-direction: column; gap: clamp(.4rem, 1.2vh, .8rem); }
 
     .dos-tarjetas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
@@ -177,7 +177,7 @@
     .objetivo-general {
       background: linear-gradient(135deg, var(--laser-suave), rgba(176,38,255,.04));
       border: 1px solid var(--laser); padding: clamp(1.05rem, 2.6vh, 1.75rem) clamp(1.4rem, 3vw, 2.1rem);
-      font-size: clamp(1.3rem, 2.8vh, 1.6rem); color: var(--blanco-90); line-height: 1.44; font-weight: 300;
+      font-size: clamp(1.4rem, 3vh, 1.75rem); color: var(--blanco-90); line-height: 1.44; font-weight: 300;
     }
     .objetivo-general .etiqueta {
       display: block; font-family: 'DM Mono', monospace; font-size: clamp(.95rem, 1.9vh, 1.1rem); letter-spacing: .12em;
@@ -187,18 +187,18 @@
     .lista-check { list-style: none; display: grid; gap: clamp(.5rem, 1.4vh, .85rem); }
     .lista-check li {
       display: flex; align-items: flex-start; gap: 12px; background: var(--grafito); border: 1px solid var(--acero);
-      padding: clamp(.65rem, 1.8vh, 1.05rem) clamp(1.05rem, 2.1vw, 1.4rem); font-size: clamp(1.2rem, 2.5vh, 1.45rem); color: var(--gris-texto); font-weight: 300;
+      padding: clamp(.65rem, 1.8vh, 1.05rem) clamp(1.05rem, 2.1vw, 1.4rem); font-size: clamp(1.3rem, 2.7vh, 1.55rem); color: var(--gris-texto); font-weight: 300;
     }
     .lista-check li::before { content: '▸'; flex-shrink: 0; color: var(--laser); font-weight: 700; font-size: 1.3rem; }
 
     .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--acero); }
     .mv-card { background: var(--grafito); padding: clamp(1.2rem, 3vh, 2.1rem) clamp(1.4rem, 2.8vw, 2.2rem); }
     .mv-card h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(1.75rem, 3.7vh, 2.3rem); color: var(--laser-claro); margin-bottom: clamp(.35rem, .9vh, .6rem); letter-spacing: .03em; }
-    .mv-card p { font-size: clamp(1.15rem, 2.4vh, 1.4rem); color: var(--gris-texto); line-height: 1.44; font-weight: 300; }
+    .mv-card p { font-size: clamp(1.25rem, 2.7vh, 1.5rem); color: var(--gris-texto); line-height: 1.44; font-weight: 300; }
 
     .tech-chips { display: flex; flex-wrap: wrap; gap: 10px; }
     .tech-chips span {
-      font-family: 'DM Mono', monospace; font-size: clamp(1.1rem, 2.2vh, 1.3rem);
+      font-family: 'DM Mono', monospace; font-size: clamp(1.2rem, 2.4vh, 1.4rem);
       color: var(--blanco-90); border: 1px solid var(--acero); background: var(--blanco-10);
       padding: clamp(.5rem, 1.3vh, .75rem) clamp(.95rem, 2vw, 1.4rem); border-radius: var(--radio-sm);
     }
@@ -209,28 +209,28 @@
       background: var(--laser-suave); border: 1px solid var(--laser); display: flex; align-items: center; justify-content: center;
     }
     .servicio-bloque h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(1.45rem, 2.9vh, 1.85rem); color: var(--blanco); margin-bottom: 3px; letter-spacing: .02em; }
-    .servicio-bloque p { font-size: clamp(1.1rem, 2.2vh, 1.3rem); color: var(--gris-texto); line-height: 1.4; font-weight: 300; }
+    .servicio-bloque p { font-size: clamp(1.2rem, 2.5vh, 1.4rem); color: var(--gris-texto); line-height: 1.4; font-weight: 300; }
 
     .productos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.5rem, 1.4vw, .9rem); }
     .producto-card { background: var(--grafito); border: 1px solid var(--acero); overflow: hidden; }
-    .producto-card .foto { aspect-ratio: 1/1; overflow: hidden; }
-    .producto-card img { width: 100%; height: 100%; object-fit: cover; }
-    .producto-card .info { padding: clamp(.5rem, 1.3vh, .8rem) clamp(.6rem, 1.3vw, .9rem); }
-    .producto-card .nombre { font-family: 'DM Mono', monospace; font-size: clamp(.95rem, 2vh, 1.15rem); color: var(--blanco-90); }
+    .producto-card .foto { height: clamp(110px, 26vh, 260px); overflow: hidden; background: var(--grafito); }
+    .producto-card img { width: 100%; height: 100%; object-fit: contain; }
+    .producto-card .info { padding: clamp(.35rem, 1vh, .6rem) clamp(.6rem, 1.3vw, .9rem); }
+    .producto-card .nombre { font-family: 'DM Mono', monospace; font-size: clamp(.98rem, 2.05vh, 1.18rem); color: var(--blanco-90); }
 
     .segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
     .segmento-card { background: var(--grafito); border: 1px solid var(--acero); padding: clamp(1.2rem, 2.9vh, 2rem); }
     .segmento-card .icono { font-size: clamp(1.7rem, 3.5vh, 2.35rem); margin-bottom: clamp(.3rem, .8vh, .5rem); display: block; }
     .segmento-card h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(1.45rem, 2.9vh, 1.85rem); color: var(--laser-claro); margin-bottom: clamp(.3rem, .8vh, .5rem); letter-spacing: .02em; }
-    .segmento-card p { font-size: clamp(1.15rem, 2.4vh, 1.4rem); color: var(--gris-texto); line-height: 1.44; font-weight: 300; }
+    .segmento-card p { font-size: clamp(1.25rem, 2.7vh, 1.5rem); color: var(--gris-texto); line-height: 1.44; font-weight: 300; }
 
     .sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.6rem, 1.6vw, 1rem); }
     .sector-card { background: var(--grafito); border: 1px solid var(--acero); overflow: hidden; }
-    .sector-card .foto { aspect-ratio: 4/3; overflow: hidden; }
-    .sector-card img { width: 100%; height: 100%; object-fit: cover; }
+    .sector-card .foto { aspect-ratio: 4/3; overflow: hidden; background: var(--grafito); }
+    .sector-card img { width: 100%; height: 100%; object-fit: contain; }
     .sector-card .info { padding: clamp(.7rem, 1.8vh, 1.2rem) clamp(.8rem, 1.8vw, 1.2rem); }
     .sector-card h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(1.3rem, 2.7vh, 1.65rem); color: var(--laser-claro); letter-spacing: .03em; margin-bottom: 4px; }
-    .sector-card p { font-size: clamp(1rem, 2.1vh, 1.2rem); color: var(--gris-texto); line-height: 1.36; font-weight: 300; }
+    .sector-card p { font-size: clamp(1.1rem, 2.4vh, 1.32rem); color: var(--gris-texto); line-height: 1.36; font-weight: 300; }
 
     /* Paleta de colores */
     .paleta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(.5rem, 1.4vw, .9rem); }
@@ -266,12 +266,13 @@
 
     /* Informe de ganancias y pérdidas — facturas con lightbox con zoom */
     .facturas-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(130px, 30vh, 250px);
+      display: flex; flex-wrap: wrap; justify-content: center; align-content: center;
       gap: clamp(.6rem, 1.6vw, 1.1rem); width: 100%;
     }
     .factura-card {
-      background: var(--blanco); border: 1px solid var(--acero); cursor: pointer; overflow: hidden;
-      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      background: var(--grafito); border: 1px solid var(--acero); cursor: pointer; overflow: hidden;
+      height: clamp(130px, 30vh, 250px); aspect-ratio: 3 / 4; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
       transition: transform .25s, box-shadow .25s, border-color .25s; position: relative;
     }
     .factura-card:hover { transform: scale(1.03); box-shadow: var(--laser-glow); border-color: var(--laser); }
@@ -364,9 +365,23 @@
       .segmento-card h3 { font-size: clamp(1.2rem, 2.9vh, 1.5rem); }
       .segmento-card p { font-size: clamp(.9rem, 2vh, 1.08rem); line-height: 1.36; }
       .productos-grid { grid-template-columns: repeat(2, 1fr); }
+      .producto-card .foto { height: clamp(90px, 16vh, 160px); }
+      .producto-card .info { padding: .4rem .55rem; }
+      .producto-card .nombre { font-size: clamp(.8rem, 1.9vh, .95rem); }
+      .servicio-bloque { padding: .55rem .8rem; gap: 10px; margin-bottom: .5rem; }
+      .servicio-bloque .icono { font-size: clamp(1.1rem, 2.6vh, 1.5rem); width: clamp(34px, 6vh, 46px); height: clamp(34px, 6vh, 46px); }
+      .servicio-bloque h3 { font-size: clamp(1rem, 2.4vh, 1.2rem); margin-bottom: 2px; }
+      .servicio-bloque p { font-size: clamp(.8rem, 1.9vh, .95rem); line-height: 1.3; }
       .dos-col, .dos-col.invertido { grid-template-columns: 1fr; }
       .dos-col img { max-height: 20vh; }
       .lead { font-size: clamp(.95rem, 2.3vh, 1.15rem); line-height: 1.4; }
+      .portada h1 { font-size: clamp(2.8rem, 16vw, 5.5rem); }
+      .portada .subt { font-size: clamp(1.05rem, 4.6vw, 1.4rem); }
+      .paleta-chip .swatch { height: clamp(50px, 11vh, 85px); }
+      .fuentes-row { gap: .6rem; }
+      .fuente-card { padding: .5rem .8rem; }
+      .fuente-card .muestra { font-size: clamp(1.3rem, 3vh, 1.8rem); margin-bottom: 2px; }
+      .fuente-card .etiqueta-fuente { font-size: clamp(.72rem, 1.6vh, .85rem); }
       .objetivo-general { padding: .75rem 1rem; font-size: clamp(.92rem, 2.1vh, 1.1rem); line-height: 1.36; }
       .objetivo-general .etiqueta { font-size: .75rem; }
       .lista-check li { padding: .5rem .8rem; font-size: clamp(.88rem, 2vh, 1.05rem); gap: 8px; }
@@ -390,7 +405,8 @@
       .costos-total { padding: .5rem .8rem; }
       .costos-total .etiqueta { font-size: .8rem; }
       .costos-total .monto { font-size: 1.35rem; }
-      .facturas-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(90px, 17vh, 150px); gap: .5rem; }
+      .facturas-grid { gap: .5rem; }
+      .factura-card { height: clamp(90px, 17vh, 150px); }
       .lead { font-size: clamp(.85rem, 2vh, 1rem); line-height: 1.34; }
       #factura-lightbox-img.zoomed { width: 900px; }
       .factura-lightbox-nav { width: 36px; height: 36px; font-size: 1rem; }
@@ -418,7 +434,7 @@
       .sector-card .info { padding: .45rem .65rem; }
       .sector-card p { display: none; }
       .productos-grid { gap: .4rem; }
-      .producto-card .foto { aspect-ratio: 16/9; }
+      .producto-card .foto { height: clamp(70px, 16vh, 150px); }
       .producto-card .info { padding: .3rem .4rem; }
       .producto-card .nombre { font-size: clamp(.82rem, 1.8vh, .95rem); }
       .paleta-grid { gap: .4rem; }
@@ -443,6 +459,7 @@
       .costos-total { padding: .4rem .7rem; }
       .costos-total .monto { font-size: 1.15rem; }
       .facturas-grid { gap: .5rem; }
+      .factura-card { height: clamp(90px, 22vh, 160px); }
     }
   </style>
 </head>
@@ -653,7 +670,7 @@
       <div class="slide-inner">
         <p class="seccion-num">09 — Lo que ofrecemos</p>
         <h2>Descripción de <span>productos y servicios</span></h2>
-        <p class="lead" style="margin-bottom:.3rem;">Plataforma de corte láser con catálogo de productos en MDF/acrílico y cotizador de diseños; multimedia en time-lapse del proceso de fabricación.</p>
+        <p class="lead" style="margin-bottom:.15rem;">Plataforma de corte láser con catálogo de productos en MDF/acrílico y cotizador de diseños; multimedia en time-lapse del proceso de fabricación.</p>
         <div class="productos-grid">
           <div class="producto-card"><div class="foto"><img src="img/llavero-ironman.jpg" alt="Llavero de Iron Man grabado" /></div><div class="info"><div class="nombre">Llavero grabado</div></div></div>
           <div class="producto-card"><div class="foto"><img src="img/goku-acrilico.jpg" alt="Cuadro de Goku en acrílico" /></div><div class="info"><div class="nombre">Cuadro acrílico</div></div></div>
@@ -804,7 +821,7 @@
       <div class="slide-inner">
         <p class="seccion-num">17 — Balance del emprendimiento</p>
         <h2>Informe de <span>ganancias y pérdidas</span></h2>
-        <p class="lead" style="margin-bottom:.2rem;">Estas son algunas de las muchas facturas de venta emitidas por CUTLAB. Haz clic en cualquiera para verla en pantalla completa y ampliarla con zoom.</p>
+        <p class="lead" style="margin-bottom:.2rem;">Estas son algunas de las muchas facturas de venta emitidas por CUTLAB.</p>
         <div class="facturas-grid">
           <div class="factura-card" onclick="abrirFactura(0)">
             <img src="img/factura-01.jpg" alt="Factura de venta N.º 06 — CUTLAB" loading="lazy" />
